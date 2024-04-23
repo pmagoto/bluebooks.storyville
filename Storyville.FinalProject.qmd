@@ -29,11 +29,11 @@ register_google(key = Sys.getenv("GOOGLE_KEY"))
 ## Loading pre-prepped Data CSVs:
 
 ```{r}
-people.1900 <- read.csv("people.1900.geocoded")
-people.1915 <- read.csv("people.1915.geocoded")
-addresses.1900 <- read.csv("people.1900.geocoded")
-addresses.1915 <- read.csv("people.1915.geocoded")
-#why is this not working?
+#To see the code that geocoded these CSVs, see the dataprep.R file. 
+people.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv")
+people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
+addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv")
+addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
 ```
 
 ## Geography:
@@ -45,14 +45,35 @@ Storyville was, and still is a district within New Orleans, Louisiana. Originall
 [^2]: Arceneaux, Pamela D. “Guidebooks to Sin: The Blue Books of Storyville.” *Louisiana History: The Journal of the Louisiana Historical Association* 28, no. 4 (1987): 397–405.
 
 ```{r}
+#creating static maps
+#mapstatic
+#Center Coordinates <- 29.960301,-90.074093
+centerofSV <- c(lon = -90.073891, lat = 29.95905) #creating the static map
+staticSV <- get_map(location = centerofSV, zoom = 17, maptype = "satellite", color = "bw")
+#lonlat of all corners of Stroyville Vice District
+#Bottom left <- Corner of Canal St. and N. Robertson St. <- 29.958558,-90.076779
+#Top left <- Corner of N. Robertson and St. Louis St. <- 29.961689,-90.073984
+#Top Right <- Corner of St. Louis Street and N. basin St. <- 29.959363,-90.070555
+#Bottom Right <- Corner of N. basin St and Canal St. <- 29.956301,-90.073466
+longitudeSV <- c(-90.076779,-90.073984, -90.070555, -90.073466) #longitude of my polygon from above
+latitudeSV <- c(29.958558, 29.961689, 29.959363,  29.956301) #latitude of my polygon from above
+lonlatSV <- as.data.frame(cbind(longitudeSV,latitudeSV)) #creating a dataframe for my polygon
+SVwithlabels <- ggmap(staticSV) + #load static map at zoom 17
+  geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + # add the polygon on top of static map
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District", color="white", size=5) +   #label the district 
+  annotate("text", x=-90.072649,y=29.960785,label="St. Louis Street", color="white", size=3, angle = -39) + 
+  annotate("text", x=-90.075394,y=29.960117,label="North Robertson Street", color="white", size=3, angle = 52) +
+  annotate("text", x=-90.075277,y=29.95746,label="Canal Street", color="white", size=3, angle = -39) +
+  annotate("text", x=-90.071914,y=29.957815,label="North Basin Street", color="white", size=3, angle = 52) + #annotate the street names and adjust their angle
+  labs(x = "Longitude", y = "Latitude") #add X/Y axis labels
 SVwithlabels
 ```
 
-After the establishment of Storyville, the district conducted sex work in an incredibly prosperous business model. However, despite the distrcit's isolation from those not involved with sex work, its geography inside the district were still challenged by those involved within progressive era moral reform movements. Most specifically, the White Slavery fear, as it was colloquially called, had heavy influence on the district, and ultimately led to its end in 1917.
+After the establishment of Storyville, the district conducted sex work in an incredibly prosperous business model. However, despite the district's isolation from those not involved with sex work, its geography inside the district were still challenged by those involved within progressive era moral reform movements. Most specifically, the White Slavery fear, as it was colloquially called, had heavy influence on the district, and ultimately led to its end in 1917.
 
-## Octoroon Commodity:
+## "Octoroon" Commodity:
 
-Storyville played upon the old southern memory of the economic, and sexual commodity, of black women. Specifically, Storyville merchandised women of mixed black and white racial heritage. Black women of the Old Antebellum South, specifically lack women who were also partially white were considered economic commodities for two reasons, their consideration as "breeding" or "breeded" slaves, as slavery was a maternal matter within US slavery and the phenomnea of "fancy girls".
+Storyville played upon the old southern memory of the economic, and sexual commodity, of black women. Specifically, Storyville merchandised women of mixed black and white racial heritage. Black women of the Old Antebellum South, specifically lack women who were also partially white were considered economic commodities for two reasons, their consideration as "breeding" or "breeded" slaves, as slavery was a maternal matter within US slavery and the phenomena of "fancy girls".
 
 "Fancy girls", and the whole ideology surrounding them, are heavily saturated in the sexualization of slavery, particularly referring to the sexualization of women of mixed-race between white and black. The name “fancy-girl” inherently came from the auction in which these black women were sold for the specific purpose of sex with the enslaver that bought them, as well as their skin tone, which was often appearing as more white than black.[^3] Legally, only “black women” could be sold as a slave, or a sex-slave within this particular case, but oftentimes these women were visually “whiter” than the other slaves within the entirety of slave auctions. This was simply a racial fetishization, according to Brenda E. Stevenson, historian and author of “Life in Black and White: Family and Community in the Slave Society”*,* “What, after all, could be more valuable than a woman of 'white' complexion who could be bought as one's private 'sex slave'?”.[^4]
 
@@ -60,15 +81,23 @@ Storyville played upon the old southern memory of the economic, and sexual commo
 
 [^4]: Davis, Adrienne D. “Slavery and the Roots of Sexual Harassment.” SSRN Scholarly Paper. Rochester, NY, November 1, 2013. https://doi.org/10.2139/ssrn.336122. 460.
 
-The sexualization and commodification of the “mulatto woman” came almost directly from the economic impacts that a mixed-race child from a black mother could have on the enslaver and their assets. [^5] This can be shown throught he breeding of black slaves with a white counterpart, mostly the white smale enslaver after Congress of the United States outlawed the international slave trade in 1800. Because Slavery within the US was maternal in nature, the only way for enslavers to expand their slave pool after the outlaw of the slave trade was for women that were enslaved to give birth under their "ownership".[^6]
+The sexualization and commodification of the “mulatto woman” came almost directly from the economic impacts that a mixed-race child from a black mother could have on the enslaver and their assets. [^5] This can be shown through the breeding of black slaves with a white counterpart, mostly the white male enslaver after Congress of the United States outlawed the international slave trade in 1800. Because Slavery within the US was maternal in nature, the only way for enslavers to expand their slave pool after the outlaw of the slave trade was for women that were enslaved to give birth under their "ownership".[^6]
 
 [^5]: Fuleihan, “The Fancy Girl Episteme”; Adrienne D. Davis, “Slavery and the Roots of Sexual Harassment,” SSRN Scholarly Paper (Rochester, NY, November 1, 2013), https://doi.org/10.2139/ssrn.336122.
 
 [^6]: Zeena Yasmine Fuleihan, “The Fancy Girl Episteme: Tracking the Legacy of Master-Slave Rape in the Evolution of the Tragic Mulatto Trope.,” *The Comparatist* 46 (October 1, 2022): 128.
 
+The importance of the octoroon as a "commodity" can be shown through the density of octoroon locations next to the train station, that most sporting gentlemen rode to enter Storyville. This station was not established until 1908, but the choice for the station to lead to the busiest area of the district.
+
+## Willie Piazza Case Study: 
+
+```{r}
+case.study <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/piazza.case.study.csv")
+```
+
 ## Race and its factor in Storyville:
 
-Storyville's marketability was much different from other vice districts in the United State during the turn of the twentieth century. there were, of course, other vice districts where white men could go to procure sex with a woman of color, however, none marketed themselves like Storyville did. Madams like \[list madams\] themselves were considered “octoroons” or “quadroons” and played into the social and sexual stereotypes that came along with being a woman of white and black descendance. These businesswomen, and the businessmen behind the scenes in some cases were able to market women identifying as octoroons “Storyville’s main attraction”.[^7] It was the scarcity of women within this skin-color identification that made their trade, and sex with them so profitable and intensely sought after worker within the district. So sought after, that if they were to leave Storyville to become a sex worker in another vice district, they would actively promote their ties to Storyville, or to creole ancestry. The women within this category were synonymous with the pleasure business of Storyville and became almost unofficial mascots of the vice district.[^8]
+Storyville's marketability was much different from other vice districts in the United State during the turn of the twentieth century. there were, of course, other vice districts where white men could go to procure sex with a woman of color, however, none marketed themselves like Storyville did. Madams like \[list madams\] themselves were considered “octoroons” or “quadroons” and played into the social and sexual stereotypes that came along with being a woman of white and black descent. These businesswomen, and the businessmen behind the scenes in some cases were able to market women identifying as octoroons “Storyville’s main attraction”.[^7] It was the scarcity of women within this skin-color identification that made their trade, and sex with them so profitable and intensely sought after worker within the district. So sought after, that if they were to leave Storyville to become a sex worker in another vice district, they would actively promote their ties to Storyville, or to creole ancestry. The women within this category were synonymous with the pleasure business of Storyville and became almost unofficial mascots of the vice district.[^8]
 
 [^7]: Landau, Emily Epstein. *Spectacular Wickedness: Sex, Race, and Memory in Storyville, New Orleans*. Baton Rouge: Louisiana State University Press, 2013. 46.
 
@@ -77,10 +106,16 @@ Storyville's marketability was much different from other vice districts in the U
 Despite this specific marketing and reputation created by Storyville business owners, the paid ads and paid listings of sex-workers within the blue books skewed heavily towards white business owners and white sex workers. Specifically, in the 1900 "400 Tenderloin" did not even have sex workers classified as "colored" listed at all, but those classified as "octoroon" and "white" by the books are heavily displayed. by 1915, however, those classified as "octoroon" were outweighed by those workers classified as "colored" by over 100%.
 
 ```{r}
-race.1900 <- people.1900 %>% group_by(race.id) %>% filter(race.id != "") %>% summarise(count.1900=n()) 
-race.1915 <- people.1915 %>% group_by(race.id) %>% filter(race.id != "") %>% summarise(count.1915 = n()) 
-by.race <- full_join(race.1900, race.1915)
-by.race.long <- pivot_longer(by.race, cols = starts_with("count"), names_to = "year", values_to = "count")
+race.1900 <- people.1900 %>% 
+  group_by(race.id) %>% #group people.1900 by race
+    filter(race.id != "") %>% #filterout NA and " " values
+      summarise(count.1900=n()) #count each occurance of race
+race.1915 <- people.1915 %>% 
+  group_by(race.id) %>% #group people.1915 by race
+    filter(race.id != "") %>% #filterout NA and " " values
+      summarise(count.1915 = n()) #count each occurance of race
+by.race <- full_join(race.1900, race.1915) #join the two subsetted race dataframe together
+by.race.long <- pivot_longer(by.race, cols = starts_with("count"), names_to = "year", values_to = "count") #lengten the data to create a double bar graph that shows each occurance by year
 racebarchart <- ggplot(by.race.long, aes(factor(race.id), count, fill = year)) + 
   geom_col(position = "dodge", na.rm = FALSE) + 
   labs( x = "Race as labeled in the Blue Books", y = "Workers", title = "Number of Workers by Race in 1900 and 1915", Fill = "Year") + 
@@ -91,11 +126,11 @@ racebarchart
 
 ## White Slavery Scare:
 
-After the establishment of Storyville, the district conducted sex work in an incredibly prosperous business model. However, despite the district's isolation from those not involved with sex work, its geography inside the district were still challenged by those involved within progressive era moral reform movements. Most specifically, the White Slavery fear, as it was colloquially called, had heavy influence on the district, and ultimately led to its end in 1917. The white slavery scare takes different identities, depending on where it took hold, and social infleunces. In Europe, this reform movement was much more heavily based on sex workers, and specifically, sex trafficking in regards to morally refined women. This led to the suppression of sex work in Europe through the sensationallized news stories of children being sold to "white slave traders". [^9]
+After the establishment of Storyville, the district conducted sex work in an incredibly prosperous business model. However, despite the district's isolation from those not involved with sex work, its geography inside the district were still challenged by those involved within progressive era moral reform movements. Most specifically, the White Slavery fear, as it was colloquially called, had heavy influence on the district, and ultimately led to its end in 1917. The white slavery scare takes different identities, depending on where it took hold, and social influences. In Europe, this reform movement was much more heavily based on sex workers, and specifically, sex trafficking in regards to morally refined women. This led to the suppression of sex work in Europe through the sensationallized news stories of children being sold to "white slave traders". [^9]
 
 [^9]: Jo Doezema, “Loose Women or Lost Women? The Re-Emergence of the Myth of White Slavery in Contemporary Discourses of Trafficking in Women: Gender Issues,” *Gender Issues* 18, no. 1 (Winter 2000): 28.
 
-In the United States, however, the terminology of white slavery took another facet. Immigration's influence is shown through laws prohibiting the "import fo women and girls for 'any other moral purpose' including prostitution".[^10]Argueably, the most contrasting facet of the United State's white slavery scare as compared to Europe is the underlying social parameters of race within the united states, specifically referring to African Americans and women and men of color. Jessica R. Piley’s book’s, *Policing Sexuality: the Mann Act and the Making of the FBI,* first chapter is titled “the American Myth of White Slavery” and consistently makes the argument that white slavery panic and reform movement within the United States took on a different face and was inherently influenced by previous societal values. It was obvious to those of this time its ties to the trans-Atlantic slave trade, actively “invoking images” and the language of slavery abolition activists from the pre-Civil War periods and tying their white slavery reformation narratives together. [^11]
+In the United States, however, the terminology of white slavery took another facet. Immigration's influence is shown through laws prohibiting the "import fo women and girls for 'any other moral purpose' including prostitution".[^10] Arguably, the most contrasting facet of the United State's white slavery scare as compared to Europe is the underlying social parameters of race within the united states, specifically referring to African Americans and women and men of color. Jessica R. Piley’s book’s, *Policing Sexuality: the Mann Act and the Making of the FBI,* first chapter is titled “the American Myth of White Slavery” and consistently makes the argument that white slavery panic and reform movement within the United States took on a different face and was inherently influenced by previous societal values. It was obvious to those of this time its ties to the trans-Atlantic slave trade, actively “invoking images” and the language of slavery abolition activists from the pre-Civil War periods and tying their white slavery reformation narratives together. [^11]
 
 [^10]: Ann Wagner and Rachel Wagley Mccann, “Prostitutes or Prey? The Evolution of Congressional Intent in Combating Sex Trafficking: Harvard Journal on Legislation,” *Harvard Journal on Legislation* 54, no. 1 (January 2017): 722.
 
@@ -113,7 +148,27 @@ It’s obvious, in the talk of reformers during this time period that black wome
 
 [^15]: Landau, Emily Epstein. *Spectacular Wickedness: Sex, Race, and Memory in Storyville, New Orleans*. Baton Rouge: Louisiana State University Press, 2013. 167.
 
-\[\[\[show where the train station is on a map\]\]\]
+```{r}
+#bottom left 29.956104,-90.073112
+#top left 29.956459,-90.072821
+#top right 29.956205,-90.072459
+#bottom right 29.955948,-90.072702
+#center coords 29.958887,-90.073748
+center.train <- c(lon = -90.073748, lat = 29.958887 )
+longitudetrain <- c(-90.073112, -90.072821, -90.072459, -90.072702) #longitude for the polygon
+latitudetrain <- c(29.956104,29.956459,29.956205,29.9562044) #latitude for the polygon
+lonlattrain <- as.data.frame(cbind(longitudetrain,latitudetrain))
+statictrain <- get_map(location = center.train, zoom = 17, maptype = "satellite", color = "bw")
+#create dataframe for the polygon
+SVwithTrainStation <- ggmap(statictrain) + #load static map at zoom 16
+  geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + # add the polygon on top of static map
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",color="white",size=3) + #label the district
+  geom_polygon(data = lonlattrain, aes(x=longitudetrain, y=latitudetrain),alpha = 0.1, color = "blue", fill = "blue") + #how do i make this a circle so its obvious? 
+  annotate("text", x=-90.072763,y=29.956204,label="Southern Railway Terminal",color="white",size=3)
+  
+ # labs(x = "Longitude", y = "Latitude")
+SVwithTrainStation
+```
 
 ## White Slavery Legislation:
 
@@ -129,16 +184,17 @@ Finally, in 1917, as the near final blow to the red-light-district of Storyville
 
 [^18]: New Orleans, Louisiana. City Ordinance No. 4118. February 4, 1917. <https://www.hnoc.org/virtual/storyville/fighting-racial-segregation>.
 
-The speicifc confines of "Black Storyville", where only black workers were allowed to reside, were as written: inside of the "following limits...from the upper side of Perdido street to the lower side of Gravier street, and from the river side of Franklin street to the lower wood side of Locust street".[^19]
+The specific confines of "Black Storyville", where only black workers were allowed to reside, were as written: inside of the "following limits...from the upper side of Perdido street to the lower side of Gravier street, and from the river side of Franklin street to the lower wood side of Locust street".[^19]
 
 [^19]: New Orleans, Louisiana. City Ordinance No. 4118. February 4, 1917. <https://www.hnoc.org/virtual/storyville/fighting-racial-segregation>.
 
-The specific confines for white Storyville were as written: inside of the "following limits... from the south side of Customhouse (now Iberville) street to the north side of St Louis street, and from the lower or wood side of North Basin Street to the lower or wood side of Robertson Sreet".[^20]
+The specific confines for white Storyville were as written: inside of the "following limits... from the south side of Customhouse (now Iberville) street to the north side of St Louis street, and from the lower or wood side of North Basin Street to the lower or wood side of Robertson Street".[^20]
 
 [^20]: New Orleans, Louisiana. City Ordinance No. 4118. February 4, 1917. <https://www.hnoc.org/virtual/storyville/fighting-racial-segregation>.
 
 ```{r}
-#black storyville coords
+#creating the BSV and WSV coordinates and labels
+#black storyville coords: using the city ordinance 4118 to create my data.
 #bottom left:29.954152,-90.080601
 #top left: 29.955334,-90.079958
 #top right:29.954153,-90.077019
@@ -161,17 +217,28 @@ centerofBSVandWSV <-  c(lon = -90.07619, lat =29.956423) #find the center for a 
 BSVandWSVstatic <-  get_map(location = centerofBSVandWSV, zoom = 16, maptype = "satellite", color = "bw") #create static map
 BSVlabeled <- ggmap(BSVandWSVstatic) + #load static map at zoom 16
   geom_polygon(data = lonlatBSV, aes(x=longitudeBSV, y=latitudeBSV),alpha = 0.1, color = "gold", fill = "gold") + # add the BSV polygon on top of static map
-   annotate("text", x=-90.078700 ,y=29.954400,label="Black Storyville",colour="white",size=5) + #label the black storyville
+  annotate("text", x=-90.078700 ,y=29.954400,label="Black Storyville",colour="white",size=5) + #label the black storyville
   geom_polygon(data = lonlatWSV, aes(x=longitudeWSV, y=latitudeWSV),alpha = 0.1, color = "red", fill = "red") + #Add the SV polygon to the static map
   annotate("text", x=-90.073182,y=29.95950,label="White Storyville",colour="white",size=5) +   #label the SV district
   labs(x = "Longitude", y = "Latitude")
 BSVlabeled
 ```
 
-As shown above, this proposed city ordinance, that Storyville did not live long enough to see through was incredibly impractical. There were multiple aspects that were
+```{r}
+geo.race.1900 <- people.1900 %>% #filter in the people.1900 csv file
+  group_by(lat,lon,race.id) %>% #group by latitude and longitude to find density of race at each location
+    summarise(count.1900 = n()) #count to find find density at a location, by race
+geo.race.1915 <- people.1915 %>% #filter in the people.1915 file
+  group_by(lat,lon,race.id) %>% #group by latitude and longitude to find density of race at each location
+    summarise(count.1915 =n()) #count to find density at a location, by race
+geo.race <- full_join(geo.race.1900, geo.race.1915) #join both together to plot together
+geo.race.long <- pivot_longer(geo.race, cols = starts_with("count"), names_to = "year", values_to = "count") %>% #ensure that the data is readable for a feceted plot
+  arrange(desc(count)) #ensure that the data points with less density appear on top of data points with higher density to read the plot clearly
+ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.3, color = "red", fill = "red") + 
+  geom_point(data = geo.race.long, mapping = aes(x=lon, y=lat, size=count, color=race.id)) +
+  scale_color_manual(values = c("white" = "white","colored"="gray27","octoroon"="gold","NA"= "transparent", "jewish" = "darkslateblue")) + 
+  facet_wrap("year") +
+  labs(x = "Longitude", y = "Latitude", title = "The Density of Races in the Blue Books, by location, in 1900 and in 1915")
+```
 
-\[\[\[density of race\]\]\]
-
-## Argument:
-
-There was inherent segregation within the district, that was catering to illicit "interracial" sex between a white man and a woman of color.
+As shown above, this proposed city ordinance, that Storyville did not live long enough to see through was incredibly impractical. Two years earlier the district held smaller confines, yet was still segregated by color on grounds of living within the same house ro apartment, this was due to the Act 87. While there was obvious overlap, where sex workers of white and black did still did live together come 1915, this does not discredit that there was a trend of social segregation already within the districts. this can also be shown int he way that only certain people bought places within the Storyville directory, as ads for themselves as sex workers or as ads for their brothels and businesses.
