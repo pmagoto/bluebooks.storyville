@@ -1,0 +1,186 @@
+---
+title: "test"
+author: "magoto"
+format: html
+editor: visual
+---
+
+```{r}
+library(ggplot2) 
+library(tidyverse)
+library(DigitalMethodsData)
+library(ggmap)
+library(tidygeocoder)
+library(leaflet)
+library(leaflet.extras)
+library(leaftime)
+library(leaflet.providers)
+library(spatstat)
+```
+
+```{r}
+#register google key 
+register_google(key = Sys.getenv("GOOGLE_KEY"))
+```
+
+```{r}
+#loadCSV
+people.1915 <- read.csv("people.1915.csv")
+people.1900 <- read.csv("people.1900.csv") %>% rename(people.id = id) %>% mutate(race.id = if_else(race.id == "french", "white", race.id))
+addresses.1915 <- read.csv("addresses.1915.csv") 
+addresses.1900 <- read.csv("adresses.1900.csv") %>% rename(address.id = id) %>% rename(buisiness.name = buisness.name) %>% mutate(race.id = if_else(race.id == "french", "white", race.id))
+#formatCSV
+full.people.1915<- people.1915 %>% mutate(full.address = paste0(street.address, ",", " ", city, ",", " ", state))
+full.people.1900 <- people.1900 %>% mutate(full.address = paste0(street.address, ",", " ", city, ",", " ", state))
+full.addresses.1915 <- addresses.1915 %>% mutate(full.address = paste0(street.address, ",", " ", city, ",", " ", state))
+full.addresses.1900 <- addresses.1900 %>%  mutate(full.address = paste0(street.address, ",", " ", city, ",", " ", state))
+#geocode1900
+geocoded.1900.addresses <- full.addresses.1900 %>% mutate_geocode(full.address, output = "latlon", source = "google")
+```
+
+```{r}
+#try leaflet as a random to make sure it works
+leaflet(data=brothel.directory.1915) %>%  addProviderTiles("Stadia.StamenTonerLite") %>% addMarkers(~lon, ~lat, popup = paste0("This is the location of", " ", brothel.directory.1900$first.name," ", brothel.directory.1900$last.name, "."))
+```
+
+```{r}
+#full1915
+full.1915 <- full_join(addresses.1915, people.1915, by = "address.id") %>% mutate(full.address = paste0(street.address.x, ",", " ", city.x, ",", " ", state.x)) 
+#full.1900
+full.1900 <- full_join(addresses.1900, people.1900, by = "address.id") %>% mutate(full.address = paste0(street.address.x, ",", " ", city.x, ",", " ", state.x)) 
+#geocode, then count 1915
+geocode.1915 <- full.1915 %>% mutate_geocode(full.address, output = "latlon", source = "google")
+geocoded.1915.addresses <- full.addresses.1915 %>% mutate_geocode(full.address, output = "latlon", source = "google")
+complete.1915 <- full_join(geocode.1915, geocoded.1915.addresses)
+counts.1915 <- geocode.1915 %>% group_by(lat,lon) %>% summarise(count= n()) %>% arrange(desc(count)) 
+#geocode then count 1900 
+geocode.1900 <- full.1900 %>% mutate_geocode(full.address, output = "latlon", source = "google") %>% 
+geocoded.1900.addresses <- full.addresses.1900 %>% mutate_geocode(full.address, output = "latlon", source = "google")
+complete.1900 <- full_join(geocoded.1900.addresses, geocode.1900) %>%  mutate(race.id = if_else(race.id == "french", "white", race.id))
+counts.1900 <- geocode.1915 %>% group_by(lat,lon) %>% summarise(count= n()) %>% arrange(desc(count))
+#save the complete data to complete files
+write.csv(complete.1900, file = "complete.1900.csv")
+write.csv(complete.1915, file= "complete.1915.csv")
+#some data will be used for people only and some including the addresses to answer different questions
+```
+
+```{r}
+#mapstatic
+#the center coordinates of SV 29.960301,-90.074093
+centerofSV <- c(lon = -90.073891, lat = 29.95905)
+#creating the static map
+staticSV <- get_map(location = centerofSV, zoom = 17, maptype = "satellite", color = "bw")
+ggmap(staticSV)
+```
+
+```{r}
+#zoom out the static map
+staticSVzoomedout <- get_map(location = centerofSV, zoom = 15, maptype = "satellite", color = "bw")
+ggmap(staticSVzoomedout)
+ggmap(staticSVzoomedout)+ geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="white",size=5)
+```
+
+```{r}
+#coords 
+#bottom left 29.958558,-90.076779
+# top left 29.961689,-90.073984
+#top right 29.959363,-90.070555
+#bottom right 29.956301,-90.073466
+longitudeSV <- c(-90.076779,-90.073984, -90.070555, -90.073466) #longitude of my polygon
+latitudeSV <- c(29.958558, 29.961689, 29.959363,  29.956301) #latitude of my polygon
+lonlatSV <- as.data.frame(cbind(longitudeSV,latitudeSV)) #creating a dataframe for my polygon
+SVlabeled <- ggmap(staticSV) + #load static map at zoom 16
+  geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + # add the polygon on top of static map
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="white",size=3) +   #label the district
+  labs(x = "Longitude", y = "Latitude")
+SVlabeled
+```
+
+```{r}
+#coords 
+#bottom left 29.958558,-90.076779
+# top left 29.961689,-90.073984
+#top right 29.959363,-90.070555
+#bottom right 29.956301,-90.073466
+SVpolygon <- matrix(c(-90.076779, 29.958558, -90.073984, 29.961689, -90.070555, 29.959363, -90.073466, 29.956301, -90.076779, 29.958558), ncol = 2, byrow = TRUE)
+#adding lines to a leaflet to show the boundaries of Storyville. 
+leaflet(data=geocoded.1900.addresses) %>% 
+  addProviderTiles("Stadia.StamenTonerLite") %>% 
+  addPolygons(lng = SVpolygon[,1], lat = SVpolygon[,2], color = "red", weight = 2, fillColor = "red", fillOpacity = 0.3, popup = SVpolygonpopup) 
+
+```
+
+```{r}
+ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + 
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="white",size=3) + 
+  geom_point(data = counts.1915, mapping = aes(x=lon, y=lat, size=count, color=count)) + 
+  scale_color_gradientn(colors = c("gold","gold1","gold2","goldenrod", "gold3", "gold4"), values = scales::rescale(c(5, 10, 15, 20, 25, 30)), na.value = "transparent")
+```
+
+```{r}
+leaflet(data=geocoded.1915.addresses) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(lng = SVpolygon[,1], lat = SVpolygon[,2], color = "red", weight = 2, fillColor = "red", fillOpacity = 0.2) %>% 
+  addMarkers(~lon, ~lat, popup = paste(geocoded.1915.addresses$street.address))
+```
+
+graph of races for sex workers at the beginning
+
+```{r}
+by.race.1900 <- full.people.1900 %>% group_by(race.id) %>% mutate(race.id = if_else(race.id == "french", "white", race.id)) %>% summarise(count.1900=n()) 
+by.race.1915 <- full.people.1915 %>% group_by(race.id) %>% filter(race.id != "") %>% summarise(count.1915 = n()) 
+by.race <- full_join(by.race.1900, by.race.1915)
+by.race.long <- pivot_longer(by.race, cols = starts_with("count"), names_to = "year", values_to = "count")
+ggplot(by.race.long, aes(factor(race.id), count, fill = year)) + 
+  geom_col(position = "dodge", na.rm = FALSE) + 
+  labs( x = "Race as labeled in the Blue Books", y = "Workers", title = "Number of Workers by Race in 1900 and 1915", Fill = "Year") + 
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values = c("count.1900" = "red3", "count.1915" = "gold2"), name = "Year")
+```
+
+```{r}
+ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + 
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="white",size=3) + 
+  geom_point(data = counts.1900, mapping = aes(x=lon, y=lat, size=count, color=count)) + 
+  scale_color_gradientn(colors = c("gold","gold1","gold2","goldenrod", "gold3", "gold4"), values = scales::rescale(c(5, 10, 15, 20, 25, 30)), na.value = "transparent")
+```
+
+```{r}
+#counting race by location
+race.1900.counts <- full_join(geocoded.1900.addresses, full.people.1900, by = "full.address") %>% rename(race.id = race.id.y) %>% group_by(race.id, lat, lon) %>% select(lat, lon, full.address, race.id, first.name, last.name) %>% summarise(count= n()) 
+race.1915.counts <- full_join(geocoded.1915.addresses, full.people.1915, by = "full.address") %>% select(lat, lon, full.address, race.id.x, first.name, last.name) %>% rename(race.id = race.id.x) %>% group_by(race.id, lat, lon) %>% summarise(count= n()) %>% filter(race.id != " ") %>% drop_na()
+```
+
+```{r}
+ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.3, color = "red", fill = "red") + 
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="black",size=3) + 
+  geom_point(data = race.1915.counts, mapping = aes(x=lon, y=lat, size=count, color=race.id)) +   
+  scale_color_manual(values = c("white" = "white","colored"="gold","octoroon"="gray","NA"= "transparent")) + facet_wrap("race.id")
+```
+
+\
+
+```{r}
+ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.3, color = "red", fill = "red") + 
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="black",size=3) + 
+  geom_point(data = race.1900.counts, mapping = aes(x=lon, y=lat, size=count, color=race.id)) +   
+  scale_color_manual(values = c("white" = "white","colored"="gold","octoroon"="gray","NA"= "transparent", "jewish" = "black"))
+```
+
+```{r}
+ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.3, color = "red", fill = "red") +
+annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="black",size=3) + 
+  geom_point(data = race.1915.counts, mapping = aes(x=lon, y=lat, size=count, color=race.id)) +   
+  scale_color_manual(values = c("white" = "white","colored"="gold","octoroon"="gray","NA"= "transparent"))
+```
+
+```{r}
+SVwithlabels <- ggmap(staticSV) + #load static map at zoom 16
+  geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + # add the polygon on top of static map
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="white",size=5) +   #label the district 
+  annotate("text", x=-90.072649,y=29.960785,label="St. Louis Street", color="white",size=3, angle = -39) + 
+  annotate("text", x=-90.075394,y=29.960117,label="North Robertson Street", color="white",size=3, angle = 52) +
+  annotate("text", x=-90.075277,y=29.95746,label="Canal Street", color="white",size=3, angle = -39) +
+  annotate("text", x=-90.071914,y=29.957815,label="North Basin Street", color="white",size=3, angle = 52) +
+  labs(x = "Longitude", y = "Latitude")
+```
