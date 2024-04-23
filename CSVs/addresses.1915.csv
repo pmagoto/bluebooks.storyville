@@ -1,0 +1,332 @@
+,address.id,street.address,street.address.written,buisiness.name,id.sexworkers,page.number,race.id,madame,page,ad.size,phone.,listed,ethnicities.mentioned,city,state
+1,1,1400 Iberville Street,,Casino Cabaret,"134,641,642,643,644,000,000,000,000,000,000,000,000","15, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63","white,white,white,white,white,white,white,white,white,white,white,white,white",,63,3-Jan,,checked,,New Orleans,Louisiana
+2,2,206 N. Crozat Street,206-208 N. Franklin St,Ranch Cabaret,"703,704,702,700,701,705,709,706,707,94,171,708","67, 67, 67, 67, 67, 67, 67, 67, 67, 11, 17, 67","white,white,white,white,white,white,white,white,white,white,white,white",,67,3-Jan,,checked,,New Orleans,Louisiana
+3,3,225 N. Basin Street,225 N. Basin,The Arlington,"1,2,43,61,92,106,222,235,277,358,366,365,732","5, 5, 7, 9, 11, 13, 21, 23, 25, 33, 33, 33, 66","white,white,white,white,white,white,white,white,white,white,white,white,white",Josie Arlington,66,1,,checked,,New Orleans,Louisiana
+4,4,223 N. Basin Street,223 N. Basin,Miss Jessie Brown,"32,33,166,205,238,239,317,316,354,355,387,386,385","7, 7, 17, 19, 23, 23, 29, 29, 33, 33, 35, 35, 35","white,white,white,white,white,white,white,white,white,white,white,white,white",Jessie Brown,69,1,788 Main,checked,,New Orleans,Louisiana
+5,5,341 N. Basin Street,341 N. Basin,Miss W. O. Barrera,"108,126,148,281,393,000","13, 13, 15, 25, 35, 68","white,white,white,white,white",,68,1,,checked,,New Orleans,Louisiana
+6,6,320 N. Crozat Street,320 N. Franklin,The Cairo,"46,63,390,731","7, 9, 35, 70","white,white,white",,70,1,Main 1647,checked,,New Orleans,Louisiana
+7,7,227 N. Basin Street,227 N. Basin,Miss Martha Clark,,,,Martha Clark,71,1,,checked,,New Orleans,Louisiana
+8,8,135 N. Crozat Street,135 N. Franklin Street,Lala Cabaret,"710,711,712,714,713,000,000,000","67, 67, 67, 67, 67, 67, 67, 67","white,white,colored,colored,colored,colored,colored,colored",,67,3-Jan,,checked,,New Orleans,Louisiana
+9,9,1500 Iberville Street,1500 Iberville St.,New Manhattan Cabaret,"720,719,718,723,724,000,000,000,000,000","67, 67, 67, 67, 67, 67, 67, 67, 67, 67","colored,colored,colored,colored,colored,colored,colored,colored,colored,colored",,67,3-Jan,,checked,,New Orleans,Louisiana
+10,10,1501 Bienville Street,,Abadie Cabaret,"653,654,655,657,656","63, 63, 63, 63, 63","white,white,white,white,white",,63,3-Jan,,checked,,New Orleans,Louisiana
+11,11,1216 Bienville Street,,My Place Cabaret,"658,659,660,661,665,000,000,000","63, 63, 63, 63, 63, 63, 63, 63","white,white,white,white,white,white,white,white",,63,3-Jan,,checked,,New Orleans,Louisiana
+12,12,135 N. Basin Street,135 North Basin Street,Union Cabaret,"666,667,669,670,671,000,000,000,000,000,000,000,000,000,000,000","65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65","white,white,white,white,white,white,white,white,white,white,white,white,white,white,white,white",,65,3-Jan,,checked,,New Orleans,Louisiana
+13,13,1501 Iberville Street,,Rice Cafe and Cabaret,"682,683,684,686,685,000,000","65, 65, 65, 65, 65, 65, 65","white,white,white,white,white,white,white",,65,3-Jan,,checked,,New Orleans,Louisiana
+14,14,221 N. Crozat Street,221 N. Franklin Street,Villa Cabaret,"689,690,692,691,693,000,000,000,000,000,000","65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65","white,white,white,white,white,white,white,white,white,white,white",,65,3-Jan,,checked,,New Orleans,Louisiana
+15,15,327 N. Crozat Street,327 N. Franklin,The Club,"127,128,244,321","15, 15, 23, 29","white,white,white,white",Maud Hartman,73,1,3567 Main,checked,"roman, italian",New Orleans,Louisiana
+16,16,213 N. Basin Street,213-215 N. Basin ,Diana and Norma,"237,351","23, 31","white,white",Dianna Ray,74,1,,checked,"french, parisan",New Orleans,Louisiana
+17,17,205 N. Basin Street,205 N. Basin,Miss Gertrude Dix,,,,Gertrude Dixie,75,1,Main 299,checked,,New Orleans,Louisiana
+18,18,1310 Conti Street,1310 Conti,Miss Louise Dreyfus,"468,565","47, 55","colored,colored",Louise Dreyfus,76,1,Main 1417,checked,spanish,New Orleans,Louisiana
+19,19,315 N. Crozat Street,315 N. Franklin,Miss May Evans,"47,243,242","7, 23, 23","white,white,white",May Evans,78,1,1190 Main,checked,,New Orleans,Louisiana
+20,20,1304 Conti Street,1304 Conti,Miss Edna Hamilton,"48,65,109,372,129","7, 9, 13, 33, 15","white,white,white,white,white",Edna Hamilton,79,1,Main 4136,checked,,New Orleans,Louisiana
+21,21,1318 Bienville Street,1318 Bienville,Miss Harriet Holland,"55,81,144,163,195,275,341,377,376","9, 11, 15, 17, 19, 25, 31, 35, 35","white,white,white,white,white,white,white,white,white",Harriet Holland,80,1,1553 Main,checked,,New Orleans,Louisiana
+22,22,331 N. Basin Street,331-333 N. Basin,The Studio,"36,147,206,241,320","7, 15, 19, 23, 29","white,white,white,white,white",Emma Johnson,82,1,Connection,checked,,New Orleans,Louisiana
+23,23,338 N. Crozat Street,338 N. Franklin,Miss Grace Lloyd,"282,169,283,170","25, 17, 25, 17","white,white,white,white",,84,1,2665 Main,checked,,New Orleans,Louisiana
+24,24,321 N. Basin Street,321 N. Basin,Miss Olga Lodi,"50,168,240,360,728","7, 17, 23, 33, 85","white,white,white,white,white",,85,1,,checked,,New Orleans,Louisiana
+25,25,317 N. Basin Street,317 N. Basin,Countess Willia Piazza,"398,401,399,402,400","39, 39, 39, 39, 39","octoroon,octoroon,octoroon,octoroon,octoroon",,88,1,4832 Main,checked,,New Orleans,Louisiana
+26,26,1320 Conti Street,1320 Conti,Miss Frances Morris,"82,152,159,198,199,300,000","11, 15, 17, 19, 19, 27, 19","white,white,white,white,white,white,white",Frances Morris,87,1,Main 2318,checked,,New Orleans,Louisiana
+27,27,1535 Iberville Street,1535 Iberville,"""Gypsy"" Shaffer",730,89,,,89,1,Connection,checked,,New Orleans,Louisiana
+28,28,315 N. Basin Street,315 N. Basin,Miss May V. Spencer,"87,186,291,292,359,383,3,5","11, 19, 27, 27, 33, 35, 5, 5","white,white,white,white,white,white,white,white",May Spencer,90,1,2927 Main,checked,,New Orleans,Louisiana
+29,29,311 N. Basin Street,311 N. Basin,Miss Bertha Weinthal,"44,45,156,318,319","7, 7, 17, 29, 29","white,white,white,white,white",Weinthal Bertha,92,1,Main 1326,checked,,New Orleans,Louisiana
+30,30,221 N. Basin Street,221 N. Basin,Miss Minnie White,"105,124,125,165,314,000","13, 13, 13, 17, 29, 29","white,white,white,white,white,white",Minnie White,94,1,1663 Main,checked,,New Orleans,Louisiana
+31,31,1545 Iberville Street,1545 Iberville,Miss Alice Williams,"150,250,332","15, 23, 31","white,white,white",Alice Williams,95,1,,checked,,New Orleans,Louisiana
+32,32,217 N. Basin Street,217 N. Basin,The Little Annex,276,25,white,Lizette Smith,96,1,,checked,,New Orleans,Louisiana
+33,33,204 Marias Street,204 Marias ,,582,57,colored,,NA,,,,,New Orleans,Louisiana
+34,34,205 N. Crozat Street,205 N. Franklin,,"322,353,51","29, 33, 7","white,white,white",,NA,,,,,New Orleans,Louisiana
+35,35,206 N. Liberty Street,206 N. Liberty,,285,27,white,,NA,,,,,New Orleans,Louisiana
+36,36,208 N. Liberty Street,208 N. Liberty,,"526,615","53, 61","colored,colored",,NA,,,,,New Orleans,Louisiana
+37,37,209 N. Crozat Street,209 N. Franklin,,223,21,white,,NA,,,,,New Orleans,Louisiana
+38,38,209 N. Basin Street,209 N. Basin,,"42,60,86,221,204,203,236,357,382,392","7, 9, 11, 21, 19, 19, 23, 33, 35, 35","white,white,white,white,white,white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+39,39,209 N. Crozat Street,209 N. Franklin,,207,21,white,,NA,,,,,New Orleans,Louisiana
+40,40,210 Marias Street,210 Marias,,"69,287","9, 27","white,white",,NA,,,,,New Orleans,Louisiana
+41,41,211 Marias Street,211 Marias,,4,5,white,,NA,,,,,New Orleans,Louisiana
+42,42,212 N. Robertson Street,212 N. Robertson,,638,61,colored,,NA,,,,,New Orleans,Louisiana
+43,43,213 Marias Street,213 Marias,,546,53,colored,,NA,,,,,New Orleans,Louisiana
+44,44,213 N. Crozat Street,213 N. Franklin,,"66,208","9, 21","white,white",,NA,,,,,New Orleans,Louisiana
+45,45,213 N. Liberty Street,213 N. Liberty,,503,51,colored,,NA,,,,,New Orleans,Louisiana
+46,46,213 N. Marias Street,213 N. Marias,,504,51,colored,,NA,,,,,New Orleans,Louisiana
+47,47,214 N. Robertson Street,214 N. Robertson,,"441,506,530","45, 51, 53","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+48,48,215 N. Basin Street,215 N. Basin,,302,27,white,,NA,,,,,New Orleans,Louisiana
+49,49,215 N. Crozat Street,215 N. Franklin,,"37,52,343,389","7, 7, 29, 35","white,white,white,white",,NA,,,,,New Orleans,Louisiana
+50,50,215 N. Liberty Street,215 N. Liberty,,286,27,white,,NA,,,,,New Orleans,Louisiana
+51,51,216 Marias Street,216 Marias,,356,33,white,,NA,,,,,New Orleans,Louisiana
+52,52,216 N. Crozat Street,216 N. Franklin,,323,29,white,,NA,,,,,New Orleans,Louisiana
+53,53,216 N. Liberty Street,216 N. Liberty,,"363,617","33, 61","white,colored",,NA,,,,,New Orleans,Louisiana
+54,54,216 N. Marias Street,216 N. Marias,,"288,324","27, 29","white,white",,NA,,,,,New Orleans,Louisiana
+55,55,216 N. Robertson Street,216 N. Robertson,,"454,453","45, 45","colored,colored",,NA,,,,,New Orleans,Louisiana
+56,56,217 N. Crozat Street,217 N. Franklin,,"53,88,161,374,391","9, 11, 17, 33, 35","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+57,57,218 N. Crozat Street,218 N. Franklin,,378,35,white,,NA,,,,,New Orleans,Louisiana
+58,58,218 N. Robertson Street,218 N. Robertson,,"375,585,594","35, 57, 57","white,colored,colored",,NA,,,,,New Orleans,Louisiana
+59,59,219 N. Crozat Street,219 N. Franklin,,"172,67","17, 9","white,white",,NA,,,,,New Orleans,Louisiana
+60,60,219 N. Liberty Street,219 N. Liberty,,"384,96","35, 11","white,white",,NA,,,,,New Orleans,Louisiana
+61,61,223 N. Crozat Street,223 N. Franklin,,379,35,white,,NA,,,,,New Orleans,Louisiana
+62,62,223 N. Liberty Street,223 N. Liberty,,185,19,white,,NA,,,,,New Orleans,Louisiana
+63,63,224 N. Crozat Street,224 N. Franklin,,131,15,white,,NA,,,,,New Orleans,Louisiana
+64,64,224 N. Rampart Street,224 N. Rampart,,368,33,white,,NA,,,,,New Orleans,Louisiana
+65,65,224 N. Robertson Street,224 N. Robertson,,605,59,colored,,NA,,,,,New Orleans,Louisiana
+66,66,222 Marias Street,222 Marias,,"70,289","9, 27","white,white",,NA,,,,,New Orleans,Louisiana
+67,67,223 Marias Street,223 Marias,,132,15,white,,NA,,,,,New Orleans,Louisiana
+68,68,225 N. Crozat Street,225 N. Franklin,,284,27,white,,NA,,,,,New Orleans,Louisiana
+69,69,225 N. Villere Street,225 N. Villere,,"440,584","45, 57","colored,colored",,NA,,,,,New Orleans,Louisiana
+70,70,226 Marais Street,226 Marais,,"6,72,313","5, 9, 29","white,white,white",,NA,,,,,New Orleans,Louisiana
+71,71,226 N. Crozat Street,226 N. Franklin,,367,33,white,,NA,,,,,New Orleans,Louisiana
+72,72,226 N. Robertson Street,226 N. Robertson,,421,43,colored,,NA,,,,,New Orleans,Louisiana
+73,73,226 N. Villere Street,226 N. Villere,,"97,133,174","11, 15, 17","white,white,white",,NA,,,,,New Orleans,Louisiana
+74,74,227 N. Crozat Street,227 N. Franklin,,"95,212","11, 21","white,white",,NA,,,,,New Orleans,Louisiana
+75,75,227 N. Liberty Street,227 N. Liberty,,417,43,colored,,NA,,,,,New Orleans,Louisiana
+76,76,228 N. Crozat Street,228 N. Franklin,,"38,173","7, 17","white,white",,NA,,,,,New Orleans,Louisiana
+77,77,228 N. Robertson Street,228 N. Robertson,,570,55,colored,,NA,,,,,New Orleans,Louisiana
+78,78,228 N. Villere Street,228 N. Villere,,583,57,colored,,NA,,,,,New Orleans,Louisiana
+79,79,229 N. Basin Street,229 N. Basin,,155,17,white,,NA,,,,,New Orleans,Louisiana
+80,80,229 N. Crozat Street,229 N. Franklin,,68,9,white,,NA,,,,,New Orleans,Louisiana
+81,81,229 N. Liberty Street,229 N. Liberty,,407,43,colored,,NA,,,,,New Orleans,Louisiana
+82,82,229 N. Villere Street,229 N. Villere,,420,43,colored,,NA,,,,,New Orleans,Louisiana
+83,83,230 N. Crozat Street,230 N. Franklin,,39,7,white,,NA,,,,,New Orleans,Louisiana
+84,84,230 N. Robertson Street,230 N. Robertson,,472,47,colored,,NA,,,,,New Orleans,Louisiana
+85,85,231 N. Basin Street,231 N. Basin,,62,9,white,,NA,,,,,New Orleans,Louisiana
+86,86,231 N. Crozat Street,231 N. Franklin,,130,15,white,,NA,,,,,New Orleans,Louisiana
+87,87,231 N. Liberty Street,231 N. Liberty,,592,57,colored,,NA,,,,,New Orleans,Louisiana
+88,88,232 N. Robertson Street,232 N. Robertson,,"606,618","59, 61","colored,colored",,NA,,,,,New Orleans,Louisiana
+89,89,235 N. Basin Street,235 N. Basin,,"403,406,404,405","39, 39, 39, 39","octoroon,octoroon,octoroon,octoroon",,NA,,,,,New Orleans,Louisiana
+90,90,305 N. Basin Street,305 N. Basin,,167,17,white,,NA,,,,,New Orleans,Louisiana
+91,91,307 N. Basin Street,307 N. Basin,,"107,278","13, 25","white,white",,NA,,,,,New Orleans,Louisiana
+92,92,307 N. Villere Street,307 N. Villere,,149,15,white,,NA,,,,,New Orleans,Louisiana
+93,93,309 N. Liberty Street,309 N. Liberty,,502,51,colored,,NA,,,,,New Orleans,Louisiana
+94,94,315 N. Liberty Street,315 N. Liberty,,439,45,colored,,NA,,,,,New Orleans,Louisiana
+95,95,315 N. Villere Street,315 N. Villere,,215,21,white,,NA,,,,,New Orleans,Louisiana
+96,96,318 Marias Street,318 Marias,,71,9,white,,NA,,,,,New Orleans,Louisiana
+97,97,318 N. Basin Street,318 N. Basin,,110,13,white,,NA,,,,,New Orleans,Louisiana
+98,98,318 N. Liberty Street,318 N. Liberty,,"293,569","27, 55","white,colored",,NA,,,,,New Orleans,Louisiana
+99,99,318 N. Marais Street,318 N. Marais,,213,21,white,,NA,,,,,New Orleans,Louisiana
+100,100,319 Marais Street,319 Marais,,40,7,white,,NA,,,,,New Orleans,Louisiana
+101,101,319 N. Basin Street,319 N. Basin,,"34,607","7, 59","white,colored",,NA,,,,,New Orleans,Louisiana
+102,102,319 N. Liberty Street,319 N. Liberty,,"545,616","53, 61","colored,colored",,NA,,,,,New Orleans,Louisiana
+103,103,319 N. Villere Street,319 N. Villere,,111,13,white,,NA,,,,,New Orleans,Louisiana
+104,104,320 N. Robertson Street,320 N. Robertson,,"422,479,532,547","43, 49, 53, 53","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+105,105,322 N. Marias Street,322 N. Marias,,419,43,colored,,NA,,,,,New Orleans,Louisiana
+106,106,322 N. Villere Street,322 N. Villere,,505,51,colored,,NA,,,,,New Orleans,Louisiana
+107,107,323 Marias Street,323 Marias,,54,9,white,,NA,,,,,New Orleans,Louisiana
+108,108,324 N. CrozatStreet,324 N. Franklin,,564,55,colored,,NA,,,,,New Orleans,Louisiana
+109,109,324 N. Robertson Street,324 N. Robertson,,"408,423,595,630","43, 43, 57, 57","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+110,110,325 N. Basin Street,325 N. Basin,,"35,279,280","7, 25, 25","white,white,white",,NA,,,,,New Orleans,Louisiana
+111,111,325 N. Liberty Street,325 N. Liberty,,418,43,colored,,NA,,,,,New Orleans,Louisiana
+112,112,326 N. Robertson Street,326 N. Robertson,,"409,596,619","43, 57, 61","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+113,113,327 N. Basin Street,327 N. Basin,,49,7,white,,NA,,,,,New Orleans,Louisiana
+114,114,328 N. Robertson Street,328 N. Robertson,,452,45,colored,,NA,,,,,New Orleans,Louisiana
+115,115,331 N. Liberty Street,331 N. Liberty,,"490,581","49, 57","colored,colored",,NA,,,,,New Orleans,Louisiana
+116,116,332 Marias Street,332 Marias,,214,21,white,,NA,,,,,New Orleans,Louisiana
+117,117,333 N. Liberty Street,333 N. Liberty,,"489,501,544,593","49, 51, 53, 57","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+118,118,335 N. Basin Street,335 N. Basin,,93,11,white,,NA,,,,,New Orleans,Louisiana
+119,119,337 N. Liberty Street,337 N. Liberty,,500,51,colored,,NA,,,,,New Orleans,Louisiana
+120,120,339 N. Liberty Street,339 N. Liberty,,438,45,colored,,NA,,,,,New Orleans,Louisiana
+121,121,408 N. Robertson Street,408 N. Robertson,,491,49,colored,,NA,,,,,New Orleans,Louisiana
+122,122,414 N. Roberton Street,414 N. Roberton,,"587,533","57, 53","colored,colored",,NA,,,,,New Orleans,Louisiana
+123,123,426 N. Villere Street,426 N. Villere,,455,45,colored,,NA,,,,,New Orleans,Louisiana
+124,124,426 Robetson Street,426 Robetson,,349,31,white,,NA,,,,,New Orleans,Louisiana
+125,125,445 N. Roberton Street,445 N. Roberton,,362,33,white,,NA,,,,,New Orleans,Louisiana
+126,126,1005 Iberville Street,1005 Iberville,,370,33,white,,NA,,,,,New Orleans,Louisiana
+127,127,1127 Bienville Street,1127 Bienville,,297,27,white,,NA,,,,,New Orleans,Louisiana
+128,128,1200 Iberville Street,1200 Iberville,,7,5,white,,NA,,,,,New Orleans,Louisiana
+129,129,1202 Iberville Street,1202 Iberville,,"73,74,224,424","9, 9, 21, 43","white,white,white,colored",,NA,,,,,New Orleans,Louisiana
+130,130,1204 Iberville Street,1204 Iberville,,294,27,white,,NA,,,,,New Orleans,Louisiana
+131,131,1206 Iberville Street,1206 Iberville,,303,27,white,,NA,,,,,New Orleans,Louisiana
+132,132,1208 Bienville Street,1208 Bienville,,"11,21","5, 5","white,white",,NA,,,,,New Orleans,Louisiana
+133,133,1210 Iberville Street,1210 Iberville,,"304,268","27, 25","white,white",,NA,,,,,New Orleans,Louisiana
+134,134,1211 Iberville Street,1211 Iberville,,"22,211","5, 21","white,white",,NA,,,,,New Orleans,Louisiana
+135,135,1212 Bienville Street,1212 Bienville,,"151,295","15, 27","white,white",,NA,,,,,New Orleans,Louisiana
+136,136,1215 Iberville Street,1215 Iberville,,"79,187","11, 19","white,white",,NA,,,,,New Orleans,Louisiana
+137,137,1214 Bienville Street,1214 Bienville,,175,17,white,,NA,,,,,New Orleans,Louisiana
+138,138,1213 Iberville Street,1213 Iberville,,325,29,white,,NA,,,,,New Orleans,Louisiana
+139,139,1216 Iberville Street,1216 Iberville,,75,9,white,,NA,,,,,New Orleans,Louisiana
+140,140,1217 Iberville Street,1217 Iberville,,23,5,white,,NA,,,,,New Orleans,Louisiana
+141,141,1219 Iberville Street,1219 Iberville,,225,21,white,,NA,,,,,New Orleans,Louisiana
+142,142,1227 Bienville Street,1227 Bienville,,460,47,colored,,NA,,,,,New Orleans,Louisiana
+143,143,1300 Bienville Street,1300 Bienville,,"232,337,338,226","23, 31, 31, 21","white,white,white,white",,NA,,,,,New Orleans,Louisiana
+144,144,1301  Iberville Street,1301  Iberville,,114,13,white,,NA,,,,,New Orleans,Louisiana
+145,145,1302 Bienville Street,1302 Bienville,,"256,272,364,373,24","25, 25, 33, 33, 5","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+146,146,1303 Bienville Street,1303 Bienville,,"259,342,99,327","25, 31, 11, 29","white,white,white,white",,NA,,,,,New Orleans,Louisiana
+147,147,1304 Bienville Street,1304 Bienville,,"142,176,350","15, 17, 31","white,white,white",,NA,,,,,New Orleans,Louisiana
+148,148,1306 Bienville Street,1306 Bienville,,"80,312,12,233,184","11, 29, 5, 23, 19","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+149,149,1307 Iberville Street,1307 Iberville,,"328,344,98","29, 31, 11","white,white,white",,NA,,,,,New Orleans,Louisiana
+150,150,1308 Bienville Street,1308 Bienville,,339,31,white,,NA,,,,,New Orleans,Louisiana
+151,151,1308 Conti Street,1308 Conti,,486,49,colored,,NA,,,,,New Orleans,Louisiana
+152,152,1308 Iberville Street,1308 Iberville,,76,9,white,,NA,,,,,New Orleans,Louisiana
+153,153,1304 Iberville Street,1304 Iberville,,157,17,white,,NA,,,,,New Orleans,Louisiana
+154,154,1309 Bienville Street,1309 Bienville,,14,5,white,,NA,,,,,New Orleans,Louisiana
+155,155,1309 Iberville Street,1309 Iberville,,"112,336,190","13, 31, 19","white,white,white",,NA,,,,,New Orleans,Louisiana
+156,156,1310 Bienville Street,1310 Bienville,,"194,273","19, 25","white,white",,NA,,,,,New Orleans,Louisiana
+157,157,1310 Iberville Street,1310 Iberville,,"326,188,257,381","29, 19, 25, 35","white,white,white,white",,NA,,,,,New Orleans,Louisiana
+158,158,1311 Iberville Street,1311 Iberville,,"245,146,246,260,380","23, 15, 23, 25, 35","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+159,159,1312 Iberville Street,1312 Iberville,,123,13,white,,NA,,,,,New Orleans,Louisiana
+160,160,1312 Bienville Street,1312 Bienville,,"89,340","11, 31","white,white",,NA,,,,,New Orleans,Louisiana
+161,161,1312 Conti Street,1312 Conti,,220,21,white,,NA,,,,,New Orleans,Louisiana
+162,162,1312 Iberville Street,1312 Iberville,,258,25,white,,NA,,,,,New Orleans,Louisiana
+163,163,1313 Bienville Street,1313 Bienville,,"56,164,196","9, 17, 19","white,white,white",,NA,,,,,New Orleans,Louisiana
+164,164,1313 Iberville Street,1313 Iberville,,"26,301","5, 27","white,white",,NA,,,,,New Orleans,Louisiana
+165,165,1314 Bienville Street,1314 Bienville,,"274,432","25, 43","white,colored",,NA,,,,,New Orleans,Louisiana
+166,166,1314 Iberville Street,1314 Iberville,,104,13,white,,NA,,,,,New Orleans,Louisiana
+167,167,1315 Bienville Street,1315 Bienville,,217,21,white,,NA,,,,,New Orleans,Louisiana
+168,168,1315 Iberville Street,1315 Iberville,,113,13,white,,NA,,,,,New Orleans,Louisiana
+169,169,1316 Iberville Street,1316 Iberville,,"59,311","9, 29","white,white",,NA,,,,,New Orleans,Louisiana
+170,170,1319 Iberville Street,1319 Iberville,,"20,262","5, 25","white,white",,NA,,,,,New Orleans,Louisiana
+171,171,1317 Iberville Street,1317 Iberville,,261,25,white,,NA,,,,,New Orleans,Louisiana
+172,172,1305 Iberville Street,1305 Iberville,,28,7,white,,NA,,,,,New Orleans,Louisiana
+173,173,1305 Bienville Street,1305 Bienville,,13,5,white,,NA,,,,,New Orleans,Louisiana
+174,174,1320 Iberville Street,1320 Iberville,,25,5,white,,NA,,,,,New Orleans,Louisiana
+175,175,1320 Bienville Street,1320 Bienville,,41,7,white,,NA,,,,,New Orleans,Louisiana
+176,176,1321 Bienville Street,1321 Bienville,,511,51,colored,,NA,,,,,New Orleans,Louisiana
+177,177,1321 Iberville Street,1321 Iberville,,27,7,white,,NA,,,,,New Orleans,Louisiana
+178,178,1323 Bienville Street,1323 Bienville,,493,49,colored,,NA,,,,,New Orleans,Louisiana
+179,179,1323 Iberville Street,1323 Iberville,,263,25,white,,NA,,,,,New Orleans,Louisiana
+180,180,1325 Conti Street,1325 Conti,,451,45,colored,,NA,,,,,New Orleans,Louisiana
+181,181,1400 Bienville Street,1400 Bienville,,614,59,colored,,NA,,,,,New Orleans,Louisiana
+182,182,1402 Bienville Street,1402 Bienville,,412,43,colored,,NA,,,,,New Orleans,Louisiana
+183,183,1402 Iberville Street,1402 Iberville,,"77,443,456,571","9, 45, 47, 55","white,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+184,184,1403 Iberville Street,1403 Iberville,,"135,229","15, 23","white,white",,NA,,,,,New Orleans,Louisiana
+185,185,1404 Bienville Street,1404 Bienville,,433,45,colored,,NA,,,,,New Orleans,Louisiana
+186,186,1405 Iberville Street,1405 Iberville,,305,27,white,,NA,,,,,New Orleans,Louisiana
+187,187,1405 Bienville Street,1405 Bienville,,346,31,white,,NA,,,,,New Orleans,Louisiana
+188,188,1406 Iberville Street,1406 Iberville,,"264,371,227","25, 33, 21","white,white,white",,NA,,,,,New Orleans,Louisiana
+189,189,1406 Bienville Street,1406 Bienville,,"513,538,512","51, 53, 51","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+190,190,1408 Iberville Street,1408 Iberville,,"116,329","13, 29","white,white",,NA,,,,,New Orleans,Louisiana
+191,191,1407 Iberville Street,1407 Iberville,,136,15,white,,NA,,,,,New Orleans,Louisiana
+192,192,1408 St. Louis Street,1408 St. Louis,,523,51,colored,,NA,,,,,New Orleans,Louisiana
+193,193,1409 Iberville Street,1409 Iberville,,"588,19","57, 5","colored,white",,NA,,,,,New Orleans,Louisiana
+194,194,1410 Iberville Street,1410 Iberville,,"158,29","17, 7","white,white",,NA,,,,,New Orleans,Louisiana
+195,195,1410 Bienville Street,1410 Bienville,,"308,447,458,514","27, 45, 47, 51","white,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+196,196,1410 Conti Street,1410 Conti,,495,49,colored,,NA,,,,,New Orleans,Louisiana
+197,197,1410 St. Louis Street,1410 St. Louis,,543,53,colored,,NA,,,,,New Orleans,Louisiana
+198,198,1411 Bienville Street,1411 Bienville,,"296,625","27, 61","white,colored",,NA,,,,,New Orleans,Louisiana
+199,199,1411 Iberville Street,1411 Iberville,,527,53,colored,,NA,,,,,New Orleans,Louisiana
+200,200,1412 Bienville Street,1412 Bienville,,"604,467","59, 47","colored,colored",,NA,,,,,New Orleans,Louisiana
+201,201,1416 St. Louis Street,1416 St. Louis,,466,47,colored,,NA,,,,,New Orleans,Louisiana
+202,202,1412 Iberville Street,1412 Iberville,,30,7,white,,NA,,,,,New Orleans,Louisiana
+203,203,1413 Bienville Street,1413 Bienville,,576,57,colored,,NA,,,,,New Orleans,Louisiana
+204,204,1414 Iberville Street,1414 Iberville,,"534,115,216","53, 13, 21","colored,white,white",,NA,,,,,New Orleans,Louisiana
+205,205,1415 Bienville Street,1415 Bienville,,483,49,colored,,NA,,,,,New Orleans,Louisiana
+206,206,1415 Iberville Street,1415 Iberville,,"191,266","19, 25","white,white",,NA,,,,,New Orleans,Louisiana
+207,207,1416 Bienville Street,1416 Bienville,,481,49,colored,,NA,,,,,New Orleans,Louisiana
+208,208,1416 Iberville Street,1416 Iberville,,162,17,white,,NA,,,,,New Orleans,Louisiana
+209,209,1417 Bienville Street,1417 Bienville,,516,51,colored,,NA,,,,,New Orleans,Louisiana
+210,210,1417 Iberville Street,1417 Iberville,,117,13,white,,NA,,,,,New Orleans,Louisiana
+211,211,1418 Bienville Street,1418 Bienville,,"557,556","55, 55","colored,colored",,NA,,,,,New Orleans,Louisiana
+212,212,1418 Conti Street,1418 Conti,,"464,578","47, 57","colored,colored",,NA,,,,,New Orleans,Louisiana
+213,213,1419 Iberville Street,1419 Iberville,,267,25,white,,NA,,,,,New Orleans,Louisiana
+214,214,1420 Conti Street,1420 Conti,,"394,579","35, 57","colored,colored",,NA,,,,,New Orleans,Louisiana
+215,215,1420 Iberville Street,1420 Iberville,,228,21,white,,NA,,,,,New Orleans,Louisiana
+216,216,1420 St. Louis Street,1420 St. Louis,,"498,639","49, 61","colored,colored",,NA,,,,,New Orleans,Louisiana
+217,217,1421 Iberville Street,1421 Iberville,,"31,78","7, 9","white,white",,NA,,,,,New Orleans,Louisiana
+218,218,1422 Bienville Street,1422 Bienville,,"448,609","45, 59","colored,colored",,NA,,,,,New Orleans,Louisiana
+219,219,1423 Bienville Street,1423 Bienville,,"599,600","59, 59","colored,colored",,NA,,,,,New Orleans,Louisiana
+220,220,1423 Iberville Street,1423 Iberville,,9,5,white,,NA,,,,,New Orleans,Louisiana
+221,221,1424 Bienville Street,1424 Bienville,,"397,396,459,624","35, 35, 47, 61","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+222,222,1424 Iberville Street,1424 Iberville,,"265,480","25, 49","white,colored",,NA,,,,,New Orleans,Louisiana
+223,223,1425 Bienville Street,1425 Bienville,,494,49,colored,,NA,,,,,New Orleans,Louisiana
+224,224,1426 Iberville Street,1426 Iberville,,"388,597,352","35, 59, 31","white,colored,white",,NA,,,,,New Orleans,Louisiana
+225,225,1426 Bienville Street,1426 Bienville,,"345,482,515","31, 49, 51","white,colored,colored",,NA,,,,,New Orleans,Louisiana
+226,226,1426 Conti Street,1426 Conti,,"465,540,566","47, 53, 55","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+227,227,1426 St. Louis Street,1426 St. Louis,,436,45,colored,,NA,,,,,New Orleans,Louisiana
+228,228,1427 Iberville Street,1427 Iberville,,"140,138,369","15, 15, 33","white,white,white",,NA,,,,,New Orleans,Louisiana
+229,229,1428 Iberville Street,1428 Iberville,,425,43,colored,,NA,,,,,New Orleans,Louisiana
+230,230,1429 Iberville Street,1429 Iberville,,492,49,colored,,NA,,,,,New Orleans,Louisiana
+231,231,1430 St. Louis Street,1430 St. Louis,,637,61,colored,,NA,,,,,New Orleans,Louisiana
+232,232,1431 Conti Street,1431 Conti,,542,53,colored,,NA,,,,,New Orleans,Louisiana
+233,233,1433 Conti Street,1433 Conti,,541,53,colored,,NA,,,,,New Orleans,Louisiana
+234,234,1433 Iberville Street,1433 Iberville,,177,17,white,,NA,,,,,New Orleans,Louisiana
+235,235,1437 Iberville Street,1437 Iberville,,"139,178","15, 17","white,white",,NA,,,,,New Orleans,Louisiana
+236,236,1425 Iberville Street,1425 Iberville,,"137,183","15, 19","white,white",,NA,,,,,New Orleans,Louisiana
+237,237,1501 Conti Street,1501 Conti,,"413,580,629,632","43, 57, 61, 61","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+238,238,1503 Conti Street,1503 Conti,,"414,496","43, 49","colored,colored",,NA,,,,,New Orleans,Louisiana
+239,239,1503 Iberville Street,1503 Iberville,,427,43,colored,,NA,,,,,New Orleans,Louisiana
+240,240,1504 Bienville Street,1504 Bienville,,484,49,colored,,NA,,,,,New Orleans,Louisiana
+241,241,1504 Conti Street,1504 Conti,,"361,416,628","33, 43, 61","white,colored,colored",,NA,,,,,New Orleans,Louisiana
+242,242,1504 Iberville Street,1504 Iberville,,"410,457,572","43, 47, 55","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+243,243,1505 Iberville Street,1505 Iberville,,598,59,colored,,NA,,,,,New Orleans,Louisiana
+244,244,1506 Conti Street,1506 Conti,,435,45,colored,,NA,,,,,New Orleans,Louisiana
+245,245,1506 St. Louis Street,1506 St. Louis,,528,53,colored,,NA,,,,,New Orleans,Louisiana
+246,246,1507 Bienville Street,1507 Bienville,,15,5,white,,NA,,,,,New Orleans,Louisiana
+247,247,1507 Iberville Street,1507 Iberville,,"411,444,549","43, 45, 53","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+248,248,1508 Conti Street,1508 Conti,,83,11,white,,NA,,,,,New Orleans,Louisiana
+249,249,1508 St. Louis Street,1508 St. Louis,,591,57,colored,,NA,,,,,New Orleans,Louisiana
+250,250,1509 Bienville Street,1509 Bienville,,197,19,white,,NA,,,,,New Orleans,Louisiana
+251,251,1509 Iberville Street,1509 Iberville,,574,57,colored,,NA,,,,,New Orleans,Louisiana
+252,252,1510 Conti Street,1510 Conti,,253,23,white,,NA,,,,,New Orleans,Louisiana
+253,253,1510 St. Louis Street,1510 St. Louis,,91,11,white,,NA,,,,,New Orleans,Louisiana
+254,254,1511 Bienville Street,1511 Bienville,,485,49,colored,,NA,,,,,New Orleans,Louisiana
+255,255,1511 Iberville Street,1511 Iberville,,429,43,colored,,NA,,,,,New Orleans,Louisiana
+256,256,1512 St. Louis Street,1512 St. Louis,,"524,525","51, 51","colored,colored",,NA,,,,,New Orleans,Louisiana
+257,257,1514 St. Louis Street,1514 St. Louis,,567,55,colored,,NA,,,,,New Orleans,Louisiana
+258,258,1515 Bienville Street,1515 Bienville,,"461,610","47, 59","colored,colored",,NA,,,,,New Orleans,Louisiana
+259,259,1516 Iberville Street,1516 Iberville,,"535,426","53, 43","colored,colored",,NA,,,,,New Orleans,Louisiana
+260,260,1517 Bienville Street,1517 Bienville,,"518,559,560","51, 55, 55","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+261,261,1518 Conti Street,1518 Conti,,521,51,colored,,NA,,,,,New Orleans,Louisiana
+262,262,1518 Iberville Street,1518 Iberville,,548,53,colored,,NA,,,,,New Orleans,Louisiana
+263,263,1518 St. Louis Street,1518 St. Louis,,529,53,colored,,NA,,,,,New Orleans,Louisiana
+264,264,1519 Bienville Street,1519 Bienville,,"469,476","47, 47","colored,colored",,NA,,,,,New Orleans,Louisiana
+265,265,1519 Iberville Street,1519 Iberville,,"550,551,613","55, 55, 59","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+266,266,1520 Bienville Street,1520 Bienville,,517,51,colored,,NA,,,,,New Orleans,Louisiana
+267,267,1520 Conti Street,1520 Conti,,298,27,white,,NA,,,,,New Orleans,Louisiana
+268,268,1520 Iberville Street,1520 Iberville,,"536,573,621","53, 55, 61","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+269,269,1521 Conti Street,1521 Conti,,121,13,white,,NA,,,,,New Orleans,Louisiana
+270,270,1521 Iberville Street,1521 Iberville,,"552,608,622,623","55, 59, 61, 61","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+271,271,1522 Beinville Street,1522 Beinville,,"395,475,577,601","35, 47, 57, 59","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+272,272,1523 Bienville Street,1523 Bienville,,428,43,colored,,NA,,,,,New Orleans,Louisiana
+273,273,1523 Conti Street,1523 Conti,,497,49,colored,,NA,,,,,New Orleans,Louisiana
+274,274,1524 Bienville Street,1524 Bienville,,"450,602","45, 59","colored,colored",,NA,,,,,New Orleans,Louisiana
+275,275,1524 Conti Street,1524 Conti,,"200,347","19, 31","white,white",,NA,,,,,New Orleans,Louisiana
+276,276,1525 Bienville Street,1525 Bienville,,589,57,colored,,NA,,,,,New Orleans,Louisiana
+277,277,1525 Conti Street,1525 Conti,,"611,612","59, 59","colored,colored",,NA,,,,,New Orleans,Louisiana
+278,278,1526 Bienville Street,1526 Bienville,,"348,626","31, 61","white,colored",,NA,,,,,New Orleans,Louisiana
+279,279,1526 Conti Street,1526 Conti,,"120,299","13, 27","white,white",,NA,,,,,New Orleans,Louisiana
+280,280,1527 Bienville Street,1527 Bienville,,"470,590","47, 57","colored,colored",,NA,,,,,New Orleans,Louisiana
+281,281,1528 Conti Street,1528 Conti,,"16,85,153,84,300","5, 11, 15, 11, 27","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+282,282,1529 Conti Street,1529 Conti,,"57,310","9, 29","white,white",,NA,,,,,New Orleans,Louisiana
+283,283,1529 Iberville Street,1529 Iberville,,"553,473","55, 47","colored,colored",,NA,,,,,New Orleans,Louisiana
+284,284,1530 Bienville Street,1530 Bienville,,"100,463,627","11, 45, 61","white,colored,colored",,NA,,,,,New Orleans,Louisiana
+285,285,1530 Conti Street,1530 Conti,,102,11,white,,NA,,,,,New Orleans,Louisiana
+286,286,1530 St. Louis Street,1530 St. Louis,,478,47,colored,,NA,,,,,New Orleans,Louisiana
+287,287,1531 Iberville Street,1531 Iberville,,"430,507,554,575","43, 51, 55, 57","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+288,288,1533 Iberville Street,1533 Iberville,,"431,446,445,508,509,000","43, 45, 45, 51, 51, 59","colored,colored,colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+289,289,1536 Iberville Street,1536 Iberville,,"141,179,230,231,247,000,000","15, 17, 23, 23, 23, 25, 29","white,white,white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+290,290,1537 Iberville Street,1537 Iberville,,"180,249","17, 23","white,white",,NA,,,,,New Orleans,Louisiana
+291,291,1538 Iberville Street,1538 Iberville,,"118,248,270,331","13, 23, 25, 31","white,white,white,white",,NA,,,,,New Orleans,Louisiana
+292,292,1540 Bienville Street,1540 Bienville,,101,11,white,,NA,,,,,New Orleans,Louisiana
+293,293,1540 Conti Street,1540 Conti,,"487,633","49, 61","colored,colored",,NA,,,,,New Orleans,Louisiana
+294,294,1540 Iberville Street,1540 Iberville,,"192,306","19, 27","white,white",,NA,,,,,New Orleans,Louisiana
+295,295,1540 St. Louis Street,1540 St. Louis,,210,21,white,,NA,,,,,New Orleans,Louisiana
+296,296,1542 Conti Street,1542 Conti,,"254,255,634","23, 23, 61","white,white,colored",,NA,,,,,New Orleans,Louisiana
+297,297,1544 Bienville Street,1544 Bienville,,462,47,colored,,NA,,,,,New Orleans,Louisiana
+298,298,1544 St. Louis Street,1544 St. Louis,,437,45,colored,,NA,,,,,New Orleans,Louisiana
+299,299,1518 Bienville Street,1518 Bienville,,449,45,colored,,NA,,,,,New Orleans,Louisiana
+300,300,1528 Bienville Street,1528 Bienville,,"434,558","45, 55","colored,colored",,NA,,,,,New Orleans,Louisiana
+301,301,1546 Conti Street,1546 Conti,,"488,635","49, 61","colored,colored",,NA,,,,,New Orleans,Louisiana
+302,302,1547 Conti Street,1547 Conti,,"143,145","15, 15","white,white",,NA,,,,,New Orleans,Louisiana
+303,303,1547 Iberville Street,1547 Iberville,,"218,219,251,333,10","21, 21, 23, 31, 5","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+304,304,1549 Conti Street,1549 Conti,,122,13,white,,NA,,,,,New Orleans,Louisiana
+305,305,1549 Iberville Street,1549 Iberville,,"8,181,307,334,335","5, 19, 27, 31, 31","white,white,white,white,white",,NA,,,,,New Orleans,Louisiana
+306,306,1550 Bienville Street,1550 Bienville,,"539,603","53, 59","colored,colored",,NA,,,,,New Orleans,Louisiana
+307,307,1550 Conti Street,1550 Conti,,"90,103,201","11, 13, 19","white,white,white",,NA,,,,,New Orleans,Louisiana
+308,308,1551 Bienville Street,1551 Bienville,,"477,520,563","47, 51, 55","colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+309,309,1552 Bienville Street,1552 Bienville,,561,55,colored,,NA,,,,,New Orleans,Louisiana
+310,310,1552 Iberville Street,1552 Iberville,,537,53,colored,,NA,,,,,New Orleans,Louisiana
+311,311,1554 Conti Street,1554 Conti,,"202,234","19, 23","white,white",,NA,,,,,New Orleans,Louisiana
+312,312,1556 Bienville Street,1556 Bienville,,562,55,colored,,NA,,,,,New Orleans,Louisiana
+313,313,1556 Conti Street,1556 Conti,,"17,58","5, 9","white,white",,NA,,,,,New Orleans,Louisiana
+314,314,1556 St. Louis Street,1556 St. Louis,,640,61,colored,,NA,,,,,New Orleans,Louisiana
+315,315,1557 Conti Street,1557 Conti,,"18,154,160","5, 15, 17","white,white,white",,NA,,,,,New Orleans,Louisiana
+316,316,1558 Conti Street,1558 Conti,,522,51,colored,,NA,,,,,New Orleans,Louisiana
+317,317,1559 Iberville Street,1559 Iberville,,"182,193,271","19, 19, 25","white,white,white",,NA,,,,,New Orleans,Louisiana
+318,318,1563 Iberville Street,1563 Iberville,,"119,252","13, 23","white,white",,NA,,,,,New Orleans,Louisiana
+319,319,1564 Bienville Street,1564 Bienville,,519,51,colored,,NA,,,,,New Orleans,Louisiana
+320,320,1564 Conti Street,1564 Conti,,499,49,colored,,NA,,,,,New Orleans,Louisiana
+321,321,1565 Conti Street,1565 Conti,,471,47,colored,,NA,,,,,New Orleans,Louisiana
+322,322,1565 Iberville Street,1565 Iberville,,474,47,colored,,NA,,,,,New Orleans,Louisiana
+323,323,1566 Conti Street,1566 Conti,,636,61,colored,,NA,,,,,New Orleans,Louisiana
+324,324,1567 Conti Street,1567 Conti,,209,21,white,,NA,,,,,New Orleans,Louisiana
+325,325,1567 Iberville Street,1567 Iberville,,"510,555","51, 55","colored,colored",,NA,,,,,New Orleans,Louisiana
+326,326,1571 Conti Street,1571 Conti,,415,43,colored,,NA,,,,,New Orleans,Louisiana
+327,327,1576 Iberville Street,1576 Iberville,,620,61,colored,,NA,,,,,New Orleans,Louisiana
+328,328,311 N. Crozat Street,311 N. Franklin,,64,9,white,,NA,,,,,New Orleans,Louisiana
+329,329,222 N. Marias Street,222 N. Marias,,290,27,white,,NA,,,,,New Orleans,Louisiana
+330,330,314 N. Robertson,314 N. Robertson,,"442,531,568,586","45, 53, 55, 57","colored,colored,colored,colored",,NA,,,,,New Orleans,Louisiana
+331,331,333 N. Basin Street,331-333 N. Basin,Home of All Nations,,,,Emma Johnson,82,1,Connection,checked,"spanish, parisian",New Orleans,Louisiana
