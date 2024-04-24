@@ -89,7 +89,7 @@ The sexualization and commodification of the “mulatto woman” came almost dir
 
 The importance of the octoroon as a "commodity" can be shown through the density of octoroon locations next to the train station, that most sporting gentlemen rode to enter Storyville. This station was not established until 1908, but the choice for the station to lead to the busiest area of the district.
 
-## Willie Piazza Case Study: 
+## Willie Piazza Case Study:
 
 ```{r}
 case.study <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/piazza.case.study.csv")
@@ -164,10 +164,11 @@ SVwithTrainStation <- ggmap(statictrain) + #load static map at zoom 16
   geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + # add the polygon on top of static map
   annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",color="white",size=3) + #label the district
   geom_polygon(data = lonlattrain, aes(x=longitudetrain, y=latitudetrain),alpha = 0.1, color = "blue", fill = "blue") + #how do i make this a circle so its obvious? 
-  annotate("text", x=-90.072763,y=29.956204,label="Southern Railway Terminal",color="white",size=3)
-  
- # labs(x = "Longitude", y = "Latitude")
+  annotate("text", x=-90.072763,y=29.956204,label="Southern Railway Terminal",color="white",size=3) + 
+  labs(x = "Longitude", y = "Latitude", title = "Train Station Location Compared to Storyville")
 SVwithTrainStation
+
+#whats the best way to visualize this?
 ```
 
 ## White Slavery Legislation:

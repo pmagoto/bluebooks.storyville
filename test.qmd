@@ -81,7 +81,27 @@ ggmap(staticSVzoomedout)+ geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=lat
 ```
 
 ```{r}
-#coords 
+#black storyville#coords
+#bottom left:29.954152,-90.080601
+#top left: 29.955334,-90.079958
+#top right:29.954153,-90.077019
+#bottom right: 29.952984,-90.077834
+#center for both 29.956423,-90.07619
+centerofBSVandSV <-  c(lon = -90.07619, lat =29.956423)
+BSVandSVstatic <-  get_map(location = centerofBSVandSV, zoom = 16, maptype = "satellite", color = "bw")
+
+longitudeBSV <- c(-90.080601, -90.079958, -90.077019, -90.077834)
+latitudeBSV <- c(29.954152,29.955334,29.954153,29.952984)
+lonlatBSV <- as.data.frame(cbind(longitudeBSV,latitudeBSV))
+
+BSVlabeled <- ggmap(BSVandSVstatic) + #load static map at zoom 16
+  geom_polygon(data = lonlatBSV, aes(x=longitudeBSV, y=latitudeBSV),alpha = 0.1, color = "gold", fill = "gold") + # add the BSV polygon on top of static map
+   annotate("text", x=-90.078700 ,y=29.954400,label="Black Storyville",colour="white",size=5) + #label the black storyville
+  geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + #Add the SV polygon to the static map
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville",colour="white",size=5) +   #label the SV district
+  labs(x = "Longitude", y = "Latitude")
+
+
 #bottom left 29.958558,-90.076779
 # top left 29.961689,-90.073984
 #top right 29.959363,-90.070555
@@ -94,6 +114,10 @@ SVlabeled <- ggmap(staticSV) + #load static map at zoom 16
   annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",colour="white",size=3) +   #label the district
   labs(x = "Longitude", y = "Latitude")
 SVlabeled
+```
+
+```{r}
+BSVlabeled
 ```
 
 ```{r}
