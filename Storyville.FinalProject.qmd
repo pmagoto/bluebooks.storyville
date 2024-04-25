@@ -32,8 +32,9 @@ register_google(key = Sys.getenv("GOOGLE_KEY"))
 #To see the code that geocoded these CSVs, see the dataprep.R file. 
 people.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv")
 people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
-addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv")
-addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
+addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1900.geocoded.csv")
+addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1915.geocoded.csv")
+race.id.colors <- c("colored" = "gray25", "white" = "white", "octoroon" = "gold")
 ```
 
 ## Geography:
@@ -93,6 +94,8 @@ The importance of the octoroon as a "commodity" can be shown through the density
 
 ```{r}
 case.study <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/piazza.case.study.csv")
+case.study.counts <- case.study %>% group_by(race.id, year) %>% summarise(count = n())
+ggplot(case.study.counts, aes(x = year, y = count)) + geom_line(color = "red") + geom_point(color = "red") + geom_text(aes(label = race.id), color = "red", vjust = -.5, size = 2.5)
 ```
 
 ## Race and its factor in Storyville:
@@ -126,7 +129,7 @@ racebarchart
 
 ## White Slavery Scare:
 
-After the establishment of Storyville, the district conducted sex work in an incredibly prosperous business model. However, despite the district's isolation from those not involved with sex work, its geography inside the district were still challenged by those involved within progressive era moral reform movements. Most specifically, the White Slavery fear, as it was colloquially called, had heavy influence on the district, and ultimately led to its end in 1917. The white slavery scare takes different identities, depending on where it took hold, and social influences. In Europe, this reform movement was much more heavily based on sex workers, and specifically, sex trafficking in regards to morally refined women. This led to the suppression of sex work in Europe through the sensationallized news stories of children being sold to "white slave traders". [^9]
+After the establishment of Storyville, the district conducted sex work in an incredibly prosperous business model. However, despite the district's isolation from those not involved with sex work, its geography inside the district were still challenged by those involved within progressive era moral reform movements. Most specifically, the White Slavery fear, as it was colloquially called, had heavy influence on the district, and ultimately led to its end in 1917. The white slavery scare takes different identities, depending on where it took hold, and social influences. In Europe, this reform movement was much more heavily based on sex workers, and specifically, sex trafficking in regards to morally refined women. This led to the suppression of sex work in Europe through the sensationalized news stories of children being sold to "white slave traders". [^9]
 
 [^9]: Jo Doezema, “Loose Women or Lost Women? The Re-Emergence of the Myth of White Slavery in Contemporary Discourses of Trafficking in Women: Gender Issues,” *Gender Issues* 18, no. 1 (Winter 2000): 28.
 
@@ -154,6 +157,10 @@ It’s obvious, in the talk of reformers during this time period that black wome
 #top right 29.956205,-90.072459
 #bottom right 29.955948,-90.072702
 #center coords 29.958887,-90.073748
+lat <- 29.956213
+lon <- -90.072753
+train <- data.frame(lon, lat)
+train <- as.data.frame(c(-90.072753, 29.956213), ncol = 2, byrow = TRUE)
 center.train <- c(lon = -90.073748, lat = 29.958887 )
 longitudetrain <- c(-90.073112, -90.072821, -90.072459, -90.072702) #longitude for the polygon
 latitudetrain <- c(29.956104,29.956459,29.956205,29.9562044) #latitude for the polygon
@@ -162,12 +169,11 @@ statictrain <- get_map(location = center.train, zoom = 17, maptype = "satellite"
 #create dataframe for the polygon
 SVwithTrainStation <- ggmap(statictrain) + #load static map at zoom 16
   geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.1, color = "red", fill = "red") + # add the polygon on top of static map
-  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",color="white",size=3) + #label the district
-  geom_polygon(data = lonlattrain, aes(x=longitudetrain, y=latitudetrain),alpha = 0.1, color = "blue", fill = "blue") + #how do i make this a circle so its obvious? 
+  annotate("text", x=-90.073891,y=29.95905,label="Storyville Vice District",color="white",size=3) + #label the district 
+  geom_point(data = train, color="blue",size=10) + 
   annotate("text", x=-90.072763,y=29.956204,label="Southern Railway Terminal",color="white",size=3) + 
   labs(x = "Longitude", y = "Latitude", title = "Train Station Location Compared to Storyville")
 SVwithTrainStation
-
 #whats the best way to visualize this?
 ```
 
@@ -243,3 +249,20 @@ ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV)
 ```
 
 As shown above, this proposed city ordinance, that Storyville did not live long enough to see through was incredibly impractical. Two years earlier the district held smaller confines, yet was still segregated by color on grounds of living within the same house ro apartment, this was due to the Act 87. While there was obvious overlap, where sex workers of white and black did still did live together come 1915, this does not discredit that there was a trend of social segregation already within the districts. this can also be shown int he way that only certain people bought places within the Storyville directory, as ads for themselves as sex workers or as ads for their brothels and businesses.
+
+combine people and addresses for leaflet:
+
+```{r}
+test.people.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv") %>% 
+test.people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
+test.addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1900.geocoded.csv") %>% rename("people.id"="id.sexworkers")
+test.addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1915.geocoded.csv") %>% rename("people.id"="id.sexworkers") %>% separate_rows(people.id, convert = TRUE)
+
+full.1900.leaflet <- left_join(test.people.1900, test.addresses.1900, by = "address.id") %>% ungroup() %>% select(street.address.x, race.id.y, buisness.name, alldistinct(street.address.x)
+```
+
+\
+
+```{#buisiness.name, street.address.x, lat.x, lon.y)}
+
+```
