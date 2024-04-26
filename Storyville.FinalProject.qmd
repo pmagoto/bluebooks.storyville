@@ -258,11 +258,28 @@ test.people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CS
 test.addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1900.geocoded.csv") %>% rename("people.id"="id.sexworkers")
 test.addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1915.geocoded.csv") %>% rename("people.id"="id.sexworkers") %>% separate_rows(people.id, convert = TRUE)
 
-full.1900.leaflet <- left_join(test.people.1900, test.addresses.1900, by = "address.id") %>% ungroup() %>% select(street.address.x, race.id.y, buisness.name, alldistinct(street.address.x)
-```
+full.1900.leaflet <- left_join(test.addresses.1900, test.people.1900, by = "address.id") %>% group_by(full.address.y) %>%  # Group by the full address
+  mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>%
+  ungroup() %>% 
+  distinct(street.address.y, .keep_all = TRUE)
 
-\
 
-```{#buisiness.name, street.address.x, lat.x, lon.y)}
+buisiness.1915<- left_join(test.addresses.1915, test.people.1915, by = "address.id") %>% group_by(full.address.y) %>%  # Group by the full address
+  mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>%
+  ungroup() %>% 
+  distinct(street.address.y, .keep_all = TRUE) %>%
+  rename("lat" = "lat.x") %>% 
+  rename ("lon" = "lon.x") %>% 
+  filter(!is.na(buisiness.name) & trimws(buisiness.name) != "") #filter out NA values AND any length of string that is not numbers or letters,just blank space. Specifically, I only want locations listed as ads wihtin the blue books. 
 
+
+
+SVpolygon <- matrix(c(-90.076779, 29.958558, -90.073984, 29.961689, -90.070555, 29.959363, -90.073466, 29.956301, -90.076779, 29.958558), ncol = 2, byrow = TRUE)
+leaflet(data=buisiness.1915) %>% 
+  addProviderTiles("Stadia.StamenTonerLite") %>% 
+  addPolygons(lng = SVpolygon[,1], lat = SVpolygon[,2], color = "red", weight = 2, fillColor = "red", fillOpacity = 0.3) %>% 
+  addMarkers(~lon, ~lat, popup = paste(
+      "<b>This business is named:</b> ", buisiness.1915$buisiness.name, 
+      "<br><b>The workers employed here are listed as:</b>", buisiness.1915$all.names,
+      sep = ""))
 ```
