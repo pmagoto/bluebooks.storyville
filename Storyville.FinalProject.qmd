@@ -30,10 +30,10 @@ register_google(key = Sys.getenv("GOOGLE_KEY"))
 
 ```{r}
 #To see the code that geocoded these CSVs, see the dataprep.R file. 
-people.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv")
-people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
-addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1900.geocoded.csv")
-addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1915.geocoded.csv")
+people.1900 <- read.csv("~/Desktop/Magoto-FP/CSVs/addresses.1900.geocoded.csv")
+people.1915 <- read.csv("~/Desktop/Magoto-FP/CSVs/people.1915.geocoded.csv")
+addresses.1900 <- read.csv("~/Desktop/Magoto-FP/CSVs/addresses.1900.geocoded.csv")
+addresses.1915 <- read.csv("~/Desktop/Magoto-FP/CSVs/addresses.1915.geocoded.csv")
 race.id.colors <- c("colored" = "gray25", "white" = "white", "octoroon" = "gold")
 ```
 
@@ -93,7 +93,7 @@ The importance of the octoroon as a "commodity" can be shown through the density
 ## Willie Piazza Case Study:
 
 ```{r}
-case.study <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/piazza.case.study.csv")
+case.study <- read.csv("CSVs/piazza.case.study.csv")
 case.study.counts <- case.study %>% group_by(race.id, year) %>% summarise(count = n())
 ggplot(case.study.counts, aes(x = year, y = count)) + geom_line(color = "red") + geom_point(color = "red") + geom_text(aes(label = race.id), color = "red", vjust = -.5, size = 2.5)
 ```
@@ -253,27 +253,27 @@ As shown above, this proposed city ordinance, that Storyville did not live long 
 combine people and addresses for leaflet:
 
 ```{r}
-test.people.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1900.geocoded.csv") %>% 
-test.people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
-test.addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1900.geocoded.csv") %>% rename("people.id"="id.sexworkers")
-test.addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1915.geocoded.csv") %>% rename("people.id"="id.sexworkers") %>% separate_rows(people.id, convert = TRUE)
+test.people.1900 <- read.csv("CSVs/people.1900.geocoded.csv") 
+test.people.1915 <- read.csv("CSVs/people.1915.geocoded.csv")
+
+
+test.addresses.1900 <- read.csv("CSVs/addresses.1900.geocoded.csv") %>% rename("people.id"="id.sexworkers")
+##Something is up with this dataframe - each address.id is duplicated several times
+test.addresses.1915 <- read.csv("CSVs/addresses.1915.geocoded.csv") %>% rename("people.id"="id.sexworkers") %>% separate_rows(people.id, convert = TRUE)
 
 full.1900.leaflet <- left_join(test.addresses.1900, test.people.1900, by = "address.id") %>% group_by(full.address.y) %>%  # Group by the full address
-  mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>%
-  ungroup() %>% 
-  distinct(street.address.y, .keep_all = TRUE)
+  mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>% distinct(street.address.y, .keep_all = TRUE)
 
-
+test.addresses.1915 <- test.addresses.1915 %>% distinct(address.id, .keep_all = TRUE)
 buisiness.1915<- left_join(test.addresses.1915, test.people.1915, by = "address.id") %>% group_by(full.address.y) %>%  # Group by the full address
   mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>%
-  ungroup() %>% 
   distinct(street.address.y, .keep_all = TRUE) %>%
   rename("lat" = "lat.x") %>% 
   rename ("lon" = "lon.x") %>% 
   filter(!is.na(buisiness.name) & trimws(buisiness.name) != "") #filter out NA values AND any length of string that is not numbers or letters,just blank space. Specifically, I only want locations listed as ads wihtin the blue books. 
 
 
-
+##AR - The repitition is coming from the dataframe not the map - this code is good.
 SVpolygon <- matrix(c(-90.076779, 29.958558, -90.073984, 29.961689, -90.070555, 29.959363, -90.073466, 29.956301, -90.076779, 29.958558), ncol = 2, byrow = TRUE)
 leaflet(data=buisiness.1915) %>% 
   addProviderTiles("Stadia.StamenTonerLite") %>% 
