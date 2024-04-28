@@ -30,8 +30,8 @@ register_google(key = Sys.getenv("GOOGLE_KEY"))
 #To see the code that geocoded these CSVs, see the dataprep.R file. 
 people.1900 <- read.csv("CSVs/people.1900.geocoded.csv")
 people.1915 <- read.csv("CSVs/people.1915.geocoded.csv")
-addresses.1900 <- read.csv("CSVs/addresses.1900.geocoded.csv")
-addresses.1915 <- read.csv("CSVs/addresses.1915.geocoded.csv")
+addresses.1900 <- read.csv("CSVs/addresses.1900.geocoded.csv") %>% rename("people.id"="id.sexworkers") %>% rename("buisiness.name"="buisness.name")
+addresses.1915 <- read.csv("CSVs/addresses.1915.geocoded.csv") %>% rename("people.id"="id.sexworkers")
 race.id.colors <- c("colored" = "gray25", "white" = "white", "octoroon" = "gold")
 ```
 
@@ -250,29 +250,43 @@ ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV)
 
 As shown above, this proposed city ordinance, that Storyville did not live long enough to see through was incredibly impractical. Two years earlier the district held smaller confines, yet was still segregated by color on grounds of living within the same house ro apartment, this was due to the Act 87. While there was obvious overlap, where sex workers of white and black did still did live together come 1915, this does not discredit that there was a trend of social segregation already within the districts. this can also be shown int he way that only certain people bought places within the Storyville directory, as ads for themselves as sex workers or as ads for their brothels and businesses.
 
-combine people and addresses for leaflet:
+
 
 ```{r}
-test.people.1900 <- read.csv("CSVs/people.1900.geocoded.csv") 
-test.people.1915 <- read.csv("CSVs/people.1915.geocoded.csv")
-test.addresses.1900 <- read.csv("CSVs/addresses.1900.geocoded.csv") %>% rename("people.id"="id.sexworkers") 
-test.addresses.1915 <- read.csv("CSVs/addresses.1915.geocoded.csv") %>% rename("people.id"="id.sexworkers") %>% separate_rows(people.id, convert = TRUE) %>% distinct(address.id, .keep_all = TRUE)
-full.1900.leaflet <- left_join(test.addresses.1900, test.people.1900, by = "address.id") %>% group_by(full.address.y) %>%  # Group by the full address
-  mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>% distinct(street.address.y, .keep_all = TRUE)
-test.addresses.1915 <- test.addresses.1915 %>% distinct(address.id, .keep_all = TRUE)
-buisiness.1915<- left_join(test.addresses.1915, test.people.1915, by = "address.id") %>% group_by(full.address.y) %>%  # Group by the full address
+buisiness.1915 <- left_join(addresses.1915, people.1915, by = "address.id") %>% 
+  group_by(full.address.y) %>%  # Group by the full address
   mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>%
   distinct(street.address.y, .keep_all = TRUE) %>%
   rename("lat" = "lat.x") %>% 
   rename ("lon" = "lon.x") %>% 
   filter(!is.na(buisiness.name) & trimws(buisiness.name) != "") #filter out NA values AND any length of string that is not numbers or letters,just blank space. Specifically, I only want locations listed as ads wihtin the blue books.
+buisiness.1900 <- left_join(addresses.1900, people.1900, by = "address.id") %>% 
+  group_by(full.address.y) %>%  # Group by the full address
+  mutate(all.names = paste(first.name, last.name, sep=" ", collapse=", ")) %>%
+  distinct(street.address.y, .keep_all = TRUE) %>%
+  rename("lat" = "lat.x") %>% 
+  rename ("lon" = "lon.x") %>% 
+  filter(!is.na(buisiness.name) & trimws(buisiness.name) != "") #filter out NA values AND any length of string that is not numbers or letters,just blank space. Specifically, I only want locations listed as ads within the blue books.
 SVpolygon <- matrix(c(-90.076779, 29.958558, -90.073984, 29.961689, -90.070555, 29.959363, -90.073466, 29.956301, -90.076779, 29.958558), ncol = 2, byrow = TRUE)
-leaflet(data=buisiness.1915) %>% 
+
+interactive.leaflet <- leaflet() %>% 
   addProviderTiles("Stadia.StamenTonerLite") %>% 
   addPolygons(lng = SVpolygon[,1], lat = SVpolygon[,2], color = "red", weight = 2, fillColor = "red", fillOpacity = 0.3) %>% 
-  addMarkers(~lon, ~lat, popup = paste(
-      "<b>This business is named:</b> ", buisiness.1915$buisiness.name, 
+  addMarkers(data=buisiness.1915, ~lon, ~lat, popup = paste(
+      "<b>This business is named:</b> ", buisiness.1915$buisiness.name, "in 1915.", 
       "<br><b>The workers employed here are listed as:</b> ", buisiness.1915$all.names,
       "<br><b> The races of the employed are listed as:</b> ", buisiness.1915$race.id.y,
-      sep = ""))
+      sep = ""), group = "1915") %>% 
+  addMarkers(data=buisiness.1900, ~lon, ~lat, popup = paste(
+      "<b>This business is named:</b> ", buisiness.1900$buisiness.name, "in 1900.", 
+      "<br><b>The workers employed here are listed as:</b> ", buisiness.1900$all.names,
+      "<br><b> The races of the employed are listed as:</b> ", buisiness.1900$race.id.y,
+      sep = ""), group = "1900") %>% 
+  addLayersControl(
+    overlayGroups = c("1900", "1915"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+
+  
+interactive.leaflet
 ```
