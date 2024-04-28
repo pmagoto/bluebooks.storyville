@@ -34,7 +34,6 @@ people.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/pe
 people.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/people.1915.geocoded.csv")
 addresses.1900 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1900.geocoded.csv")
 addresses.1915 <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/addresses.1915.geocoded.csv")
-race.id.colors <- c("colored" = "gray25", "white" = "white", "octoroon" = "gold")
 ```
 
 ## Geography:
@@ -97,6 +96,8 @@ case.study <- read.csv("/Users/paigemagoto/Desktop/bluebooks.storyville/CSVs/pia
 case.study.counts <- case.study %>% group_by(race.id, year) %>% summarise(count = n())
 ggplot(case.study.counts, aes(x = year, y = count)) + geom_line(color = "red") + geom_point(color = "red") + geom_text(aes(label = race.id), color = "red", vjust = -.5, size = 2.5)
 ```
+
+As Willie Piazza's Castle is
 
 ## Race and its factor in Storyville:
 
