@@ -88,16 +88,6 @@ The sexualization and commodification of the “mulatto woman” came almost dir
 
 The importance of the octoroon as a "commodity" can be shown through the density of octoroon locations next to the train station, that most sporting gentlemen rode to enter Storyville. This station was not established until 1908, but the choice for the station to lead to the busiest area of the district.
 
-## Willie Piazza Case Study:
-
-```{r}
-case.study <- read.csv("CSVs/piazza.case.study.csv")
-case.study.counts <- case.study %>% group_by(race.id, year) %>% summarise(count = n())
-ggplot(case.study.counts, aes(x = year, y = count)) + geom_line(color = "red") + geom_point(color = "red") + geom_text(aes(label = race.id), color = "red", vjust = -.5, size = 2.5)
-```
-
-As Willie Piazza's Castle is
-
 ## Race and its factor in Storyville:
 
 Storyville's marketability was much different from other vice districts in the United State during the turn of the twentieth century. there were, of course, other vice districts where white men could go to procure sex with a woman of color, however, none marketed themselves like Storyville did. Madams like Willie Piazza and Lulu White themselves were considered “octoroons” or “quadroons” and played into the social and sexual stereotypes that came along with being a woman of white and black descent. These businesswomen, and the businessmen behind the scenes in some cases were able to market women identifying as octoroons “Storyville’s main attraction”.[^7] It was the scarcity of women within this skin-color identification that made their trade, and sex with them so profitable and intensely sought after worker within the district. So sought after, that if they were to leave Storyville to become a sex worker in another vice district, they would actively promote their ties to Storyville, or to creole ancestry. The women within this category were synonymous with the pleasure business of Storyville and became almost unofficial mascots of the vice district.[^8]
@@ -179,7 +169,7 @@ SVwithTrainStation
 
 ## White Slavery Legislation:
 
-The legislative influence that the white slavery fear reformers and other moral reformers had on Storyville and other vice district all over the US was astronomical. In the case of Storyville, New Orleans specifically, there were 4 legislative acts that were monumental in the closing of Storyville as a vice district in 1917. Starting in 1907/1908, Act 87 of Louisiana House Bill No. 4 is also, most obviously focuses on race and the mixing of races. This iteration of segregating reform laws passed in Louisiana criminalizes the cohabitation between two individuals of different races, specifically “a person of the Caucasian or white race and a person of the negro or black race”. Not only was this a statute expected to be followed by the citizens of Louisiana, but this crime was also classified as a felony. Those held within violation of Act 87 were to be held in front of a grand jury by the judge. The penalty for breaking this law, and being found guilty of the crime was “not less than one month nor more than one year” held within a state penitentiary.[^16] This language used to describe the difference between white and black people, otherwise known as the color line, only cut deeper into the practices Storyville had been upholding for a decade.
+The legislative influence that the white slavery fear reformers and other moral reformers had on Storyville and other vice district all over the US was astronomical. In the case of Storyville, New Orleans specifically, there were 4 legislative acts that were monumental in the closing of Storyville as a vice district in 1917. Starting in 1907, Act 87 of Louisiana House Bill No. 4 is also, most obviously focuses on race and the mixing of races. This iteration of segregating reform laws passed in Louisiana criminalizes the cohabitation between two individuals of different races, specifically “a person of the Caucasian or white race and a person of the negro or black race”. Not only was this a statute expected to be followed by the citizens of Louisiana, but this crime was also classified as a felony. Those held within violation of Act 87 were to be held in front of a grand jury by the judge. The penalty for breaking this law, and being found guilty of the crime was “not less than one month nor more than one year” held within a state penitentiary.[^16] This language used to describe the difference between white and black people, otherwise known as the color line, only cut deeper into the practices Storyville had been upholding for a decade.
 
 [^16]: Act No. 87, House bill No. 4, Louisiana State Court, <https://lasc.libguides.com/ld.php?content_id=29652258>. (Accessed April 5, 2024).
 
@@ -241,16 +231,30 @@ geo.race.1915 <- people.1915 %>% #filter in the people.1915 file
 geo.race <- full_join(geo.race.1900, geo.race.1915) #join both together to plot together
 geo.race.long <- pivot_longer(geo.race, cols = starts_with("count"), names_to = "year", values_to = "count") %>% #ensure that the data is readable for a feceted plot
   arrange(desc(count)) #ensure that the data points with less density appear on top of data points with higher density to read the plot clearly
-ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.3, color = "red", fill = "red") + 
+density.map <- ggmap(staticSV) + geom_polygon(data = lonlatSV, aes(x=longitudeSV, y=latitudeSV),alpha = 0.3, color = "red", fill = "red") + 
   geom_point(data = geo.race.long, mapping = aes(x=lon, y=lat, size=count, color=race.id)) +
   scale_color_manual(values = c("white" = "white","colored"="gray27","octoroon"="gold","NA"= "transparent", "jewish" = "darkslateblue")) + 
   facet_wrap("year") +
   labs(x = "Longitude", y = "Latitude", title = "The Density of Races in the Blue Books, by location, in 1900 and in 1915")
+density.map
 ```
 
 As shown above, this proposed city ordinance, that Storyville did not live long enough to see through was incredibly impractical. Two years earlier the district held smaller confines, yet was still segregated by color on grounds of living within the same house ro apartment, this was due to the Act 87. While there was obvious overlap, where sex workers of white and black did still did live together come 1915, this does not discredit that there was a trend of social segregation already within the districts. this can also be shown int he way that only certain people bought places within the Storyville directory, as ads for themselves as sex workers or as ads for their brothels and businesses.
 
+## Willie Piazza Case Study:
 
+The chart below is a brief look into all the digitized years represneting Willie Piazza and her business, oftentimes referred to as "The Castle". As shown, in 1908 and 1909 the racial identification taken by Willie Piazza changed from "octoroon" to "colored", and eventually switched back. While not being able to be completely sure of Piazza's motives, the instance of 1908 and 1909 is interesting in comparison to acertain racial identification law that were applied to New Orleans by progressive reformers in 1907. This law was Act 87, as explained above regarding cohabitation between the races in Storyville.
+
+```{r}
+case.study <- read.csv("CSVs/piazza.case.study.csv")
+case.study.counts <- case.study %>% group_by(race.id, year) %>% summarise(count = n())
+willie.case.study <- ggplot(case.study.counts, aes(x = year, y = count)) + geom_line(color = "red") + geom_point(color = "red") + geom_text(aes(label = race.id), color = "red", vjust = -.5, size = 2.5) + scale_x_continuous(breaks = seq(min(case.study.counts$year), max(case.study.counts$year), by = 1))
+willie.case.study
+```
+
+## Interactive Leaflet of Names Businesses:
+
+Below is an interactive map categorized by buisinesses
 
 ```{r}
 buisiness.1915 <- left_join(addresses.1915, people.1915, by = "address.id") %>% 
@@ -269,15 +273,18 @@ buisiness.1900 <- left_join(addresses.1900, people.1900, by = "address.id") %>%
   filter(!is.na(buisiness.name) & trimws(buisiness.name) != "") #filter out NA values AND any length of string that is not numbers or letters,just blank space. Specifically, I only want locations listed as ads within the blue books.
 SVpolygon <- matrix(c(-90.076779, 29.958558, -90.073984, 29.961689, -90.070555, 29.959363, -90.073466, 29.956301, -90.076779, 29.958558), ncol = 2, byrow = TRUE)
 
+icon.1900 <- makeIcon(iconUrl = "icons/black.icon.png", iconWidth = 24, iconHeight = 24)
+icon.1915 <- makeIcon(iconUrl = "icons/blue.icon.png", iconWidth = 24, iconHeight = 24)
+
 interactive.leaflet <- leaflet() %>% 
   addProviderTiles("Stadia.StamenTonerLite") %>% 
   addPolygons(lng = SVpolygon[,1], lat = SVpolygon[,2], color = "red", weight = 2, fillColor = "red", fillOpacity = 0.3) %>% 
-  addMarkers(data=buisiness.1915, ~lon, ~lat, popup = paste(
+  addMarkers(data=buisiness.1915, ~lon, ~lat, icon = icon.1915, popup = paste(
       "<b>This business is named:</b> ", buisiness.1915$buisiness.name, "in 1915.", 
       "<br><b>The workers employed here are listed as:</b> ", buisiness.1915$all.names,
       "<br><b> The races of the employed are listed as:</b> ", buisiness.1915$race.id.y,
       sep = ""), group = "1915") %>% 
-  addMarkers(data=buisiness.1900, ~lon, ~lat, popup = paste(
+  addMarkers(data=buisiness.1900, ~lon, ~lat, icon = icon.1900, popup = paste(
       "<b>This business is named:</b> ", buisiness.1900$buisiness.name, "in 1900.", 
       "<br><b>The workers employed here are listed as:</b> ", buisiness.1900$all.names,
       "<br><b> The races of the employed are listed as:</b> ", buisiness.1900$race.id.y,
@@ -286,7 +293,5 @@ interactive.leaflet <- leaflet() %>%
     overlayGroups = c("1900", "1915"),
     options = layersControlOptions(collapsed = FALSE)
   )
-
-  
 interactive.leaflet
 ```
