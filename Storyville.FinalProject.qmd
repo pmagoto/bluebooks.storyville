@@ -252,9 +252,15 @@ willie.case.study <- ggplot(case.study.counts, aes(x = year, y = count)) + geom_
 willie.case.study
 ```
 
+## Conclusions: 
+
+The Blue Books of Storyville were examples of those of the district that were able to pay for their place within them, so while exemplary of the district in certain ways, it does not fully represent the districts as a whole. However, the district evolved accroding to the values of these directory holders, until the intervention of progressive reformers that were agaisnt the isntitution of sex work as a whole.
+
+In the future, I'd like this data, and this project, to evolve past the point of solely 1900 and 1915, at the moment, I have access to the 1901, 1903, 1905, 1906, 1908, 1909 and 1912 versions of the books. After a trip to The Historic New Orleans Collective over the summer, I should have at least 4 more years worth of data to explore, map, and create a shiny app revolving around the businesses, women, madams, and other pertinent information to eventually morph into my thesis.
+
 ## Interactive Leaflet of Names Businesses:
 
-Below is an interactive map categorized by buisinesses
+Below is an interactive map categorized by businesses and years, this shows specifically the buisnisness name, those employed by the business, and racial identification of the business, as they are listed in the books.
 
 ```{r}
 buisiness.1915 <- left_join(addresses.1915, people.1915, by = "address.id") %>% 
