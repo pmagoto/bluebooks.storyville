@@ -270,7 +270,7 @@ This data is important, tot the historical and societal understanding of Storyvi
 
 ## Interactive Leaflet of Names Businesses:
 
-Below is an interactive map categorized by businesses and years, this shows specifically the buisineses name, those employed by the business, and racial identification of the business, as they are listed in the books. Takign direct influence from the Mapping the Gay guides Project, I'd like to see the
+Below is an interactive map categorized by businesses and years, this shows specifically the buisineses name, those employed by the business, and racial identification of the business, as they are listed in the books. Taking direct influence from the Mapping the Gay guides Project, I'd like to see this be built in Shiny with filtering parameters showing the locations, the race.ids and the different years in a more interactive format.
 
 ```{r}
 buisiness.1915 <- left_join(addresses.1915, people.1915, by = "address.id") %>% 
